@@ -4,7 +4,7 @@ show_downloads: true
 
 baseurl: "/" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
 url: "https://tear94fall.github.io" # change this to the base hostname & protocol for your site
-
+discus-identifier: tear94fall-github-io
 
 google_analytics:
 

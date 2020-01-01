@@ -5,7 +5,7 @@ author: Joonsub, Lim
 date:   2019-12-31 04:00:00
 categories: Essay
 comments: true
-image: ./_warehouse/2017-1-27_CNN_Layer_Talk_filter.png
+image: #
 ---
 2019년을 돌아보고 2020년을 목표를 다짐 하면서 작성한 회고록입니다.  
 지난 1년의 시간동안 경험 했던일을 정리하면서 작성해보았습니다.  
