@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "새로운 프로젝트 구상"
+title:  "새로운 프로젝트에 대한 고민"
 author: Joonsub, Lim
 date:   2020-01-01 00:00:00
 categories: Essay
