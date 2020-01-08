@@ -13,7 +13,7 @@ Dart 라는 언어로 만들어져 있으며, Dart 역시 구글이 만든 언�
 
 ---
 ### 1. Flutter(플러터) 란?
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter logo.PNG )
+![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter logo.png )
 크로스 플랫폼은 개발자에겐 마치 꿈과 같은 이야기 입니다.  
 특히나 모바일 개발자에게 있어 크로스 플랫폼은 이루지 못한 꿈과 같은 존재일 것입니다.  
 하나의 코드로 두개의 플랫폼에서 모두 실행이 가능하다면, 유지보수는 더욱 용이할 것입니다.  
