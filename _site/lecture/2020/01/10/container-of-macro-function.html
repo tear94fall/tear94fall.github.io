@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[리눅스 커널] C/C++ container_of 매크로 함수에 대해서</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="리눅스 커널 코드에서 많이 활용되는 매크로 함수를 소개 해보려고 합니다. 처음에 봤을때 좀 난해한 느낌이 들기도 했습니다. 그런만큼 꼭 포스팅 해보고 싶은 녀석이기도 했습니다. 바로 offsetof와 container_of 매크로 함수 입니다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="lecture" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[리눅스 커널] C/C++ container_of 매크로 함수에 대해서" />
+<meta name="twitter:description" content="리눅스 커널 코드에서 많이 활용되는 매크로 함수를 소개 해보려고 합니다. 처음에 봤을때 좀 난해한 느낌이 들기도 했습니다. 그런만큼 꼭 포스팅 해보고 싶은 녀석이기도 했습니다. 바로 offsetof와 container_of 매크로 함수 입니다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//lecture/2020/01/10/container-of-macro-function.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[리눅스 커널] C/C++ container_of 매크로 함수에 대해서" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//lecture/2020/01/10/container-of-macro-function.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="리눅스 커널 코드에서 많이 활용되는 매크로 함수를 소개 해보려고 합니다. 처음에 봤을때 좀 난해한 느낌이 들기도 했습니다. 그런만큼 꼭 포스팅 해보고 싶은 녀석이기도 했습니다. 바로 offsetof와 container_of 매크로 함수 입니다." />
+<meta property="og:site_name" content="Cayman Blog Theme" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-01-10T09:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="lecture" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/lecture/2020/01/10/container-of-macro-function.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">Cayman Blog Theme</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/now.html">Now</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/contact.html">Contact</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[리눅스 커널] C/C++ container_of 매크로 함수에 대해서</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-01-10T09:00:00+09:00" itemprop="datePublished">
+                    
+                    Jan 10, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[리눅스 커널] C/C++ container_of 매크로 함수에 대해서</h1>
+    <p class="post-meta">
+      <time datetime="2020-01-10T09:00:00+09:00" itemprop="datePublished">
+        
+        Jan 10, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>리눅스 커널 코드에서 많이 활용되는 매크로 함수를 소개 해보려고 합니다.<br>
+처음에 봤을때 좀 난해한 느낌이 들기도 했습니다. 그런만큼 꼭 포스팅 해보고 싶은 녀석이기도 했습니다.<br>
+바로 offsetof와 container_of 매크로 함수 입니다.</p>
+
+<hr>
+<h3 id="1-offsetof-매크로">1. offsetof 매크로</h3>
+
+<p><strong>특정 구조체에서 해당 변수가 메모리 상에서 어느지점에 위치해 있는지 알 수 있다.</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#ifndef offsetof
+#define offsetof(s, m) (size_t)&amp;(((s *)0)-&gt;m)
+#endif
+</code></pre></div></div>
+
+<p>s는 구조체, m는 멤버 변수이다. <br>
+<code class="highlighter-rouge">(size_t)&amp;(((s*)0)-&gt;m)</code> 에서 <code class="highlighter-rouge">((s*)0)</code>은 0번지 주소에 s 구조체가 있다고 가정하는 것이다.<br>
+이 구조체는 멤버변수 m을 가리키고 있다.</p>
+
+<p>이함수는 어떻게 작동이 가능할까?<br>
+컴퓨터는 메모리에 접근할 때 기본 주소에서 할당 멤버의 offset(일정 거리)를 더해서 나머지 값을 더한다.</p>
+
+<p>예를 들어, m이 어디에 있는지 고정된 값으로 정하지 않는다.<br>
+대신 기본주소 (1000)에서 m의 거리인 offset(4)를 더하는 것이다. <br>
+m의 주소는 1000+4로 1004가 될 것이다.</p>
+
+<p>다시 함수의 원형을 본다면, <code class="highlighter-rouge">(0)-&gt;m</code>은 <code class="highlighter-rouge">0+(m의 위치)</code>가 된다. 0+4는 4가 된다.<br>
+(m은 4크기를 가진 멤버 변수 라고 가정)</p>
+
+<p>다음의 코드를 살펴보자.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef struct TEST
+    int a;
+    int b;
+    int c;
+} Test;
+
+Test t;
+</code></pre></div></div>
+<p>위와 같이 test 라는 이름의 Test 구조체를 선언했다. 이때 메모리의 구조는 다음과 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">순서</th>
+      <th style="text-align: center">메모리 주소</th>
+      <th style="text-align: center">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1000 번지</td>
+      <td style="text-align: center">구조체 t</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">1000 번지</td>
+      <td style="text-align: center">멤버 변수 a</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">1004 번지</td>
+      <td style="text-align: center">멤버 변수 b</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">1008 번지</td>
+      <td style="text-align: center">멤버 변수 c</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>구조체 t의 주소와 t의 멤버 변수인 a의 메모리 주소는 같다.<br>
+구조체에서 제일 첫번쨰 변수와 그 구조체의 인스턴스의 주소는 항상 같다. (배열, 공용체도 마찬가지)<br>
+아래표의 코드에서 세가지 코드는 모두 같은 주소를 가리키고 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">순서</th>
+      <th style="text-align: center">메모리 주소</th>
+      <th style="text-align: center">의미</th>
+      <th style="text-align: left">코드</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1000 번지</td>
+      <td style="text-align: center">구조체 t의 주소</td>
+      <td style="text-align: left">&amp;t</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">1000 번지</td>
+      <td style="text-align: center">멤버 변수 a의 주소</td>
+      <td style="text-align: left">&amp;(t.a)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">1000 번지</td>
+      <td style="text-align: center">멤버 변수 a의 주소</td>
+      <td style="text-align: left">(char*)&amp;t + offsetof(test, a)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="2-container_of-매크로">2. container_of 매크로</h3>
+
+<p><strong>특정 구조체에서 멤버변수의 주소를 가지고 있을 경우 그 본체의 주소를 반환한다.</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#ifndef container_of
+#define container_of(ptr, type, member) ({ \
+    const typeof( ((type *)0)-&gt;member ) *_mptr = (ptr); \
+    (type *)( (char *)_mptr - offsetof(type, member) ); })
+#endif
+</code></pre></div></div>
+
+<p><strong>구조체의 주소 = (구조체 멤버의 주소 값 - offsetof()를 통한 구조체 멤버의 오프셋)</strong></p>
+
+<p>우선 이함수를 이해하기 위해서는 앞서 <code class="highlighter-rouge">offsetof()</code>의 이해를 필요로 합니다.  <br>
+앞서 설명한 <code class="highlighter-rouge">offsetof()</code> 함수가 이해되지 않는다면, 꼭 이해하고 보시기 바랍니다.</p>
+
+<p>container_of 함수는 다음과 같이 세가지 파라미터를 필요로 합니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 멤버변수의 주소값
+2. 구조체 타입
+3. 멤버변수 이름
+</code></pre></div></div>
+
+<p>쉽게 설명 하기 위해 예를 들어 보겠습니다. 다음과 Block 이라는 구조체가 있습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">멤버 변수</th>
+      <th style="text-align: center">크기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">A</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">B</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">C</td>
+      <td style="text-align: center">4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>우리가 가지고 있는 정보는 현재 <code class="highlighter-rouge">현재위치</code>와 <code class="highlighter-rouge">구조체</code> 와 <code class="highlighter-rouge">멤버변수</code> 입니다.<br>
+3가지값을 통해 우리가 알고싶은 정보는 <code class="highlighter-rouge">구조체의 위치</code> 입니다.</p>
+
+<p>앞서 우리는 이함수가 3가지 파라미터를 필요로 한다고 했습니다. <br>
+여기서 우리가 가지고 있는 값들과 파라미터를 매칭 시켜 보겠습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">파라미터</th>
+      <th style="text-align: center">화살표</th>
+      <th style="text-align: center">의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">멤버변수의 주소값</td>
+      <td style="text-align: center">➡️</td>
+      <td style="text-align: center">현재 멤버변수의 위치</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">구조체 타입</td>
+      <td style="text-align: center">➡️</td>
+      <td style="text-align: center">구조체의 정보</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">멤버변수 이름</td>
+      <td style="text-align: center">➡️</td>
+      <td style="text-align: center">구조체의 멤버변수</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>정리해보면 위의 표와 같습니다.</p>
+
+<p>이제 <code class="highlighter-rouge">구조체</code> 와 <code class="highlighter-rouge">멤버변수</code>를 <code class="highlighter-rouge">offsetof()</code>함수를 잘 이용해 봅시다. <br>
+우리는 구조체로 부터 해당 멤버 변수가 얼마만큼 떨어져있는지를 바로 <code class="highlighter-rouge">offsetof()</code>함수를 통해서 알 수 있습니다.<br>
+구조체 <code class="highlighter-rouge">Block</code>과 멤버변수 <code class="highlighter-rouge">B</code>를 통해서 우리는 <code class="highlighter-rouge">B</code>가 <code class="highlighter-rouge">Block</code>으로부터 4만큼 떨어져 있는 것을 알 수 있습니다.</p>
+
+<p>그럼 현재의 멤버변수의 위치인 <code class="highlighter-rouge">B의 위치</code> 에서 방금 구한 <code class="highlighter-rouge">B가 구조체 Block으로부터 떨어져 있는 거리</code>를 빼면? <br>
+B라는 멤버변수를 가지는 <code class="highlighter-rouge">구조체의 위치</code>를 알 수 있습니다.</p>
+
+  </div>
+
+  
+  <div id="post-disqus" class="container">
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tear94fall-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+  </div>
+  
+</article>
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                <span class="my-span-icon">
+                    <a href="http://localhost:4000/contact.html" aria-label="Contact" title="Contact ">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"></path></svg>
+                    </a>
+                </span>
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
