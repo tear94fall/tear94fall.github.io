@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[리눅스 커널] C/C++ container_of 매크로 함수에 대해서"
+title:  "C/C++ container_of 매크로 함수에 대해서"
 author: Joonsub, Lim
 date:   2020-01-10 00:00:00
 categories: lecture
