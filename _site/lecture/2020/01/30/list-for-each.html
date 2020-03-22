@@ -14,7 +14,7 @@
     
     
     
-    <title>Cayman Blog Theme</title>
+    <title>C/C++ list_for_each_entry() 함수</title>
     
     
     
@@ -32,9 +32,11 @@
 
 <!-- Place this data between the <head> tags of your website -->
 
-<meta name="description" content="Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages." />
+<meta name="description" content="list_for_each(), list_for_each_entry() 함수에 대해서 알아보도록 하곘습니다. 리눅스 커널에서 자주 사용되는 함수로, 링크드 리스트를 이용하는 함수들 입니다. &amp;lt;linux/list.h&amp;gt;에는 여러 함수가 있지만, 중요한 함수 부터 알아보도록 하곘습니다." />
 
 
+
+  <meta name="keywords" itemprop="categories" content="lecture" />
 
 
 
@@ -43,8 +45,8 @@
 
 
 
-<meta name="twitter:title" content="Cayman Blog Theme" />
-<meta name="twitter:description" content="Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages." />
+<meta name="twitter:title" content="C/C++ list_for_each_entry() 함수" />
+<meta name="twitter:description" content="list_for_each(), list_for_each_entry() 함수에 대해서 알아보도록 하곘습니다. 리눅스 커널에서 자주 사용되는 함수로, 링크드 리스트를 이용하는 함수들 입니다. &amp;lt;linux/list.h&amp;gt;에는 여러 함수가 있지만, 중요한 함수 부터 알아보도록 하곘습니다." />
 
 
 
@@ -53,36 +55,44 @@
   <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
   <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta name="twitter:url" content="http://localhost:4000//" />
+<meta name="twitter:url" content="http://localhost:4000//lecture/2020/01/30/list-for-each.html" />
 
 <!-- Open Graph data -->
-<meta property="og:title" content="Cayman Blog Theme" />
+<meta property="og:title" content="C/C++ list_for_each_entry() 함수" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:4000//" />
+<meta property="og:url" content="http://localhost:4000//lecture/2020/01/30/list-for-each.html" />
 
 
   <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
 
-<meta property="og:description" content="Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages." />
+<meta property="og:description" content="list_for_each(), list_for_each_entry() 함수에 대해서 알아보도록 하곘습니다. 리눅스 커널에서 자주 사용되는 함수로, 링크드 리스트를 이용하는 함수들 입니다. &amp;lt;linux/list.h&amp;gt;에는 여러 함수가 있지만, 중요한 함수 부터 알아보도록 하곘습니다." />
 <meta property="og:site_name" content="Cayman Blog Theme" />
 
 
 <meta property="og:locale" content="" />
 
 
+  <meta property="article:published_time" content="2020-01-30T09:00:00+09:00" />
+
+
+
+
+  
 
 
 
 
 
-
+  
+    <meta property="article:tag" content="lecture" />
+  
 
 
 
 
     
     
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/lecture/2020/01/30/list-for-each.html">
     
     
     
@@ -104,6 +114,8 @@
     
     
 
+    
+      <a class="site-title" href="http://localhost:4000/">Cayman Blog Theme</a>
     
 
     
@@ -154,177 +166,176 @@
         
         
         <section class="page-header">
-            <h1 class="project-name">Cayman Blog Theme</h1>
-            <h2 class="project-tagline">Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages.</h2>
+            <h1 class="project-name">C/C++ list_for_each_entry() 함수</h1>
+            <h2 class="project-tagline"></h2>
             
             <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-01-30T09:00:00+09:00" itemprop="datePublished">
+                    
+                    Jan 30, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+                
+            </h2>
             
             <!-- End: Post tagline -->
         </section>
         
         <section class="main-content">
             
-            <div>
+            <article itemscope itemtype="http://schema.org/BlogPosting">
 
-  <p>Cayman Blog Theme is a clean, responsive blogging theme for Jekyll. It is inspired by the Cayman Theme for Github Pages, which can be greatly used for single projects but not as blogging platform.</p>
-
-<p>This theme has instead all you need to start today blogging with Jekyll, and no effort: pages, posts, few social buttons. Try loading this on mobile too.</p>
-
-<p>Have a look at the Github page for more information.</p>
-
-<p>You find this descriptive text in the <code class="highlighter-rouge">index.md</code> file, so you can change it, or remove it completely, according to your needs.</p>
-
-
-  <h2>Latest Posts</h2>
-
-  <div> </div>
-
-  <ul class="post-list">
-    
-      <li>
-
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">C/C++ list_for_each_entry() 함수</h1>
+    <p class="post-meta">
+      <time datetime="2020-01-30T09:00:00+09:00" itemprop="datePublished">
         
-        <span class="post-meta">Mar 3, 2020</span>
-
-        <h2>
-          <a class="post-link" href="http://localhost:4000/lecture/2020/03/03/vim-ctags-cscope-taglist.html" title="vim + ctags + cscope + taglist">vim + ctags + cscope + taglist</a>
-        </h2>
-
-        <p>리눅스, 유닉스 환경에서 vi으로 프로그래밍을 할때 vi와 같이 쓰는 유용한 플러그인을 소개합니다.
-아무래도 IDE가 아닌 텍스트 편집기이므로, 보다 편하게 사용하기 위해서는 플러그인을 같이 사용해주면 됩니다.</p>
-
-
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Feb 25, 2020</span>
-
-        <h2>
-          <a class="post-link" href="http://localhost:4000/essay/2020/02/25/20-linux-and-unix-terminal.html" title="리눅스와 유닉스 그리고 터미널">리눅스와 유닉스 그리고 터미널</a>
-        </h2>
-
-        <p>미리보기 글이 없습니다.</p>
-
-
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Feb 10, 2020</span>
-
-        <h2>
-          <a class="post-link" href="http://localhost:4000/lecture/2020/02/10/vi-keyboard-short-cut.html" title="vi 에디터 사용법 (vim 단축키 정리)">vi 에디터 사용법 (vim 단축키 정리)</a>
-        </h2>
-
-        <p>vi는 emacs와 더불어 가장 많이 사용되는 터미널 텍스트 편집기 중 하나 입니다. <br> gui기반의 에디터가 아니라 cli 기반의 에디터 이기 때문에 배우기는 어렵지만, 익숙해지면 정말 편하답니다. <br> 처음부터...
-
+        Jan 30, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
       </p>
-</li>
-    
-      <li>
+  </header> -->
 
-        
-        <span class="post-meta">Jan 30, 2020</span>
-
-        <h2>
-          <a class="post-link" href="http://localhost:4000/lecture/2020/01/30/list-for-each.html" title="C/C++ list_for_each_entry() 함수">C/C++ list_for_each_entry() 함수</a>
-        </h2>
-
-        <p>list_for_each(), list_for_each_entry() 함수에 대해서 알아보도록 하곘습니다.<br>
+  <div itemprop="articleBody">
+    <p>list_for_each(), list_for_each_entry() 함수에 대해서 알아보도록 하곘습니다.<br>
 리눅스 커널에서 자주 사용되는 함수로, 링크드 리스트를 이용하는 함수들 입니다.<br>
 &lt;linux/list.h&gt;에는 여러 함수가 있지만, 중요한 함수 부터 알아보도록 하곘습니다.</p>
 
+<hr>
 
+<h2 id="링크드-리스트">링크드 리스트</h2>
 
-      </li>
-    
-      <li>
+<p><img src="/image/Data%20Structure/linked_list.png" alt="Image Alt 텍스트"></p>
 
-        
-        <span class="post-meta">Jan 17, 2020</span>
+<hr>
 
-        <h2>
-          <a class="post-link" href="http://localhost:4000/lecture/2020/01/17/cpp-strtok.html" title="C/C++ strtok() 함수">C/C++ strtok() 함수</a>
-        </h2>
+<h2 id="1-list_for_each-함수">1. list_for_each() 함수</h2>
+<p>list_for_each() 함수는 리스트를 순회합니다.</p>
 
-        <p>C/C++을 사용하면서 문자열 처리에 대해 다룰 일이 있었다.<br>
-문자열을 자르거나 붙이고 변경하는 등의 다양한 작업을 했는데, 그중에서 조금 헷갈리는 개념들을 포스팅 해보고자 한다.
-포스팅에서 다룰 함수는 strtok()과 strtok_r()이다</p>
+<h3 id="11-include">1.1 Include</h3>
+<p>list_for_each() 함수는 &lt;linux/list.h&gt;에 선언되어있습니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h &gt;
+</code></pre></div></div>
 
+<h3 id="12-function">1.2 Function</h3>
+<p>함수의 원형은 다음과 같습니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define list_for_each(pos, head) \
+    for (pos = (head)-&gt;next; pos != (head); pos = pos-&gt;next)
+</code></pre></div></div>
 
+<h3 id="13-parameters">1.3 Parameters</h3>
+<p>list_for_each() 함수는 3개의 파라미터를 갖습니다.</p>
+<ul>
+  <li>pos
+    <ul>
+      <li>루프문에서 사용할 커서로써 항목을 임시로 저장해두는 변수이다.</li>
+    </ul>
+  </li>
+  <li>head
+    <ul>
+      <li>리스트의 헤드(가장 앞)로 연결 리스트의 시작 주소 입니다.</li>
+    </ul>
+  </li>
+</ul>
 
-      </li>
-    
-      <li>
+<h3 id="14-example">1.4 Example</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct list_head *ptr;
+struct list_node *node;
 
-        
-        <span class="post-meta">Jan 10, 2020</span>
+list_for_each(ptr, &amp;my_list){
+    node = list_entry(ptr, struct list_node, list);
+}
+</code></pre></div></div>
 
-        <h2>
-          <a class="post-link" href="http://localhost:4000/lecture/2020/01/10/container-of-macro-function.html" title="C/C++ container_of 매크로 함수에 대해서">C/C++ container_of 매크로 함수에 대해서</a>
-        </h2>
+<hr>
 
-        <p>리눅스 커널 코드에서 많이 활용되는 매크로 함수를 소개 해보려고 합니다.<br> 처음에 봤을때 좀 난해한 느낌이 들기도 했습니다. 그런만큼 꼭 포스팅 해보고 싶은 녀석이기도 했습니다.<br> 바로 offsetof와 container_of 매크로...
+<h2 id="2-list_for_each_entry-함수">2. list_for_each_entry() 함수</h2>
+<p>list_for_each_entry()는 for 문 처럼 각각의 node는 순서대로 접근 하는 함수 입니다.</p>
 
-      </p>
-</li>
-    
-      <li>
+<h3 id="21-include">2.1 Include</h3>
+<p>list_for_each() 함수는 &lt;linux/list.h&gt;에 선언되어있습니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h &gt;
+</code></pre></div></div>
 
-        
-        <span class="post-meta">Jan 3, 2020</span>
+<h3 id="22-function">2.2 Function</h3>
+<p>함수의 원형은 다음과 같습니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define list_for_each_entry(pos, head, member)              \
+    for (pos = list_entry((head)-&gt;next, typeof(*pos), member);   \
+         &amp;pos-&gt;member != (head);     \
+         pos = list_entry(pos-&gt;member.next, typeof(*pos), member))
+</code></pre></div></div>
 
-        <h2>
-          <a class="post-link" href="http://localhost:4000/lecture/2020/01/03/google-flutter-start.html" title="Google Flutter(플러터) 시작하기 - 설치 및 첫 프로젝트">Google Flutter(플러터) 시작하기 - 설치 및 첫 프로젝트</a>
-        </h2>
+<h3 id="23-parameters">2.3 Parameters</h3>
+<p>list_for_each_entry() 함수는 3개의 파라미터를 갖습니다.</p>
+<ul>
+  <li>pos
+    <ul>
+      <li>루프문에서 사용할 커서로써 항목을 임시로 저장해두는 변수입니다.</li>
+    </ul>
+  </li>
+  <li>head
+    <ul>
+      <li>리스트의 헤드(가장 앞)로 연결 리스트의 시작 주소 입니다.</li>
+    </ul>
+  </li>
+  <li>member
+    <ul>
+      <li>인자는 node의 링크드 리스트의 멤버 변수 입니다.</li>
+    </ul>
+  </li>
+</ul>
 
-        <p>Flutter는 Google에서 개발한 크로스 플랫폼 모바일 앱 개발 프레임 워크입니다.<br> Dart 라는 언어로 만들어져 있으며, Dart 역시 구글이 만든 언어 입니다.<br> 이번 포스팅에서는 최근에 각광받고 있는 프레임 워크인...
+<h3 id="24-example">2.4 Example</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h&gt;
 
-      </p>
-</li>
-    
-      <li>
+struct Node{
+    int Data;
+    struct list_head list;
+}
 
-        
-        <span class="post-meta">Jan 1, 2020</span>
+...
+list_for_each_entry(curr, &amp;my_list, list){
+    printf("%d\n", curr-&gt;number);
+}
+...
+</code></pre></div></div>
 
-        <h2>
-          <a class="post-link" href="http://localhost:4000/essay/2020/01/01/my-example-post.html" title="새로운 프로젝트에 대한 고민">새로운 프로젝트에 대한 고민</a>
-        </h2>
+<hr>
 
-        <p>2020년에 작성하는 첫 포스팅 입니다.<br>
-첫번째 글의 주제는 새로운 사이드 프로젝트에 대해 다뤄보려고 합니다. <br>
-평소에 주의 깊게 보는 관심사들을 정리해보고, 향후 진행할 프로젝트에 대해서 고민해보았습니다.</p>
+  </div>
 
+  
+  <div id="post-disqus" class="container">
+  <div id="disqus_thread"></div>
+<script>
 
-
-      </li>
-    
-      <li>
-
-        
-        <span class="post-meta">Dec 31, 2019</span>
-
-        <h2>
-          <a class="post-link" href="http://localhost:4000/essay/2019/12/31/my-example-post.html" title="2019년 회고 / 2020년 계획">2019년 회고 / 2020년 계획</a>
-        </h2>
-
-        <p>2019년을 돌아보고 2020년을 목표를 다짐 하면서 작성한 회고록입니다.<br>
-지난 1년의 시간동안 경험 했던일을 정리하면서 작성해보았습니다.<br>
-최대한 타임라인대로 작성하였으나, 조금 차이가 날수도 있습니다.</p>
-
-
-
-      </li>
-    
-  </ul>
-
-</div>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tear94fall-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+  </div>
+  
+</article>
 
             
             <footer class="site-footer">

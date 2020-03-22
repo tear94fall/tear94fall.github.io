@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>vim + ctags + cscope + taglist</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="리눅스, 유닉스 환경에서 vi으로 프로그래밍을 할때 vi와 같이 쓰는 유용한 플러그인을 소개합니다. 아무래도 IDE가 아닌 텍스트 편집기이므로, 보다 편하게 사용하기 위해서는 플러그인을 같이 사용해주면 됩니다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="lecture" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="vim + ctags + cscope + taglist" />
+<meta name="twitter:description" content="리눅스, 유닉스 환경에서 vi으로 프로그래밍을 할때 vi와 같이 쓰는 유용한 플러그인을 소개합니다. 아무래도 IDE가 아닌 텍스트 편집기이므로, 보다 편하게 사용하기 위해서는 플러그인을 같이 사용해주면 됩니다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//lecture/2020/03/03/vim-ctags-cscope-taglist.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="vim + ctags + cscope + taglist" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//lecture/2020/03/03/vim-ctags-cscope-taglist.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="리눅스, 유닉스 환경에서 vi으로 프로그래밍을 할때 vi와 같이 쓰는 유용한 플러그인을 소개합니다. 아무래도 IDE가 아닌 텍스트 편집기이므로, 보다 편하게 사용하기 위해서는 플러그인을 같이 사용해주면 됩니다." />
+<meta property="og:site_name" content="Cayman Blog Theme" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-03-03T09:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="lecture" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/lecture/2020/03/03/vim-ctags-cscope-taglist.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">Cayman Blog Theme</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/now.html">Now</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/contact.html">Contact</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">vim + ctags + cscope + taglist</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-03-03T09:00:00+09:00" itemprop="datePublished">
+                    
+                    Mar 3, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">vim + ctags + cscope + taglist</h1>
+    <p class="post-meta">
+      <time datetime="2020-03-03T09:00:00+09:00" itemprop="datePublished">
+        
+        Mar 3, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>리눅스, 유닉스 환경에서 vi으로 프로그래밍을 할때 vi와 같이 쓰는 유용한 플러그인을 소개합니다.
+아무래도 IDE가 아닌 텍스트 편집기이므로, 보다 편하게 사용하기 위해서는 플러그인을 같이 사용해주면 됩니다.</p>
+
+<hr>
+
+<h2 id="1-ctags">1. ctags</h2>
+<p><strong>소스파일 내에 정의된 전역변수, 함수, 매크로, 구조체 등의 정보를 모아 데이터베이스 파일인 tags 파일을 생성하는 툴</strong></p>
+
+<h3 id="11-설치">1.1. 설치</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 데비안 게열
+apt-get install ctags
+
+# 레드햇 계열
+yum install ctags
+</code></pre></div></div>
+
+<h3 id="12-설정">1.2. 설정</h3>
+<p><strong>프로젝트 파일의 최상위 디렉토리로 이동한 뒤 실행해야 한다.</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tags 파일 생성
+ctags -R
+</code></pre></div></div>
+
+<p>다음은 .vimrc 파일에 tags파일의 경로를 설정해주어야 한다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
+set tags=/home/user/workspace/project/tags
+</code></pre></div></div>
+<p>아래와 같이 여러개를 등록하는것도 가능하다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set tags=./tags, /usr/src/linux/tags
+</code></pre></div></div>
+
+<h3 id="13-사용법">1.3 사용법</h3>
+<ul>
+  <li>
+<strong>Ctrl + ]</strong>
+    <ul>
+      <li>현재 커서가 가리키고 있는 함수나, 구조체 등의 정의로 이동한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include "sum.h"
+
+int main(int agrc, char *argv[]){
+    ...
+    int num1=1, num2=123;
+    sum(num1, num2); 
+}
+</code></pre></div></div>
+
+<p>main함수에서 sum 함수에서 <code class="highlighter-rouge">Ctrl + ]</code>를 누르면 sum.h의 sum함수의 정의로 이동한다.</p>
+
+<ul>
+  <li>
+<strong>Ctrl + t</strong>
+    <ul>
+      <li>만일 Ctrl + ] 로 이동했다면, 이전 위치로 할때 사용한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum(int num1, int num2){
+    return num1 + num2;
+}
+</code></pre></div></div>
+
+<p>main 함수에서 <code class="highlighter-rouge">Ctrl + ]</code> 를 이용해 sum.h로 이동했다면, <code class="highlighter-rouge">Ctrl + t</code> 를 이용해서 다시 main함수로 돌아온다.</p>
+
+<hr>
+
+<h2 id="2-cscope">2. cscope</h2>
+<p><strong>ctags로 찾기 힘든 전역 변수의 사용이나, 함수의 호출등을 보기 위해서 사용하는 툴</strong></p>
+
+<h3 id="21-설치">2.1. 설치</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 데비안 게열
+apt-get install cscope
+
+# 레드햇 계열
+yum install cscope
+</code></pre></div></div>
+
+<h3 id="22-설정">2.2. 설정</h3>
+<p><strong>ctags와 달리 입력해야 될것이 많아서 스크립트 파일을 만들어서 사용</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> cscope.files cscope.out
+find <span class="nb">.</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> <span class="se">\(</span> <span class="nt">-name</span> <span class="s1">'*.c'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.cpp'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.cc'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.h'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.s'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*S'</span> <span class="se">\)</span> <span class="nt">-print</span> <span class="o">&gt;</span> cscope.files
+cscope <span class="nt">-i</span> cscope.files
+</code></pre></div></div>
+<p>mkcscope.sh 파일을 생성하고, 스크립트 파일을 다음과 같이 작성한다. <code class="highlighter-rouge">pwd</code>를 꼭 입력해주도록 한다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 755 mkcscope.sh
+mv mkcscope.sh /usr/local/bin
+</code></pre></div></div>
+<p>또한 스크립트를 언제나 실행 할수있게 해준다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkcscope.sh
+cscope.files cscope.out
+</code></pre></div></div>
+<p>이후 최상위 디렉토리에서 mkcscope.sh 파일을 실행해 데이터베이스 파일을 생성해준다.  <br>
+스크립트 파일을 실행한 후에는 <code class="highlighter-rouge">Ctrl + d</code> 를 입력하면 끝이난다.   <br>
+실행이 완료된 뒤에는 <code class="highlighter-rouge">cscope.files</code>와 <code class="highlighter-rouge">cscope.out</code>파일이 생성된다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
+set csprg=/usr/bin/cscope
+set csto=0
+set cst
+set nocsverb
+
+if filereadable("./cscope.out")
+cs add cscope.out
+else
+cs add /usr/user/workspace/project/cscope.out
+endif
+set csverb
+</code></pre></div></div>
+<p>vim에서 사용이 가능하도록 vimrc파일에 다음을 추가헤준다.</p>
+
+<h3 id="23-사용법">2.3 사용법</h3>
+<ul>
+  <li>cs find [0 or s] <name>
+</name>    <ul>
+      <li>해당이름을 가진 함수나 전역변수가 사용된곳을 보여준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi sum.h
+int sum(int num1, int num2){
+    return num1 + num2;
+}
+
+:cs find 0 sum
+</code></pre></div></div>
+<hr>
+
+<h2 id="3-taglist">3. taglist</h2>
+<p><strong>vim사용시 소스파일의 변수와 함수등을 화면 옆면에 리스트로 보여주는 툴</strong></p>
+
+<h3 id="31-설치">3.1. 설치</h3>
+<p><code class="highlighter-rouge">http://vim-taglist.sourceforge.net/download.html</code> 에서 taglist를 다운받는다.</p>
+
+<h3 id="32-설정">3.2. 설정</h3>
+<p><strong>압축 해제 후 파일을 vim의 경로에 복사해준다.</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ unzip taglist.zip
+/doc /plugin
+</code></pre></div></div>
+<p>다운 후 압축을 풀면 <code class="highlighter-rouge">/doc/taglist.txt</code>와 <code class="highlighter-rouge">/plugin/taglist.vim</code>의 두개의 디렉토리안에 파일이 있다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/doc/taglist.txt
+/usr/share/vim/vim8x/doc/
+</code></pre></div></div>
+<p><code class="highlighter-rouge">taglist.txt</code> 파일은 <code class="highlighter-rouge">/usr/share/vim/vim8x/doc/</code> 로 복사 해준다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/plugin/taglist.vim
+/usr/share/vim/vim8x/plugin/ 에 복사
+</code></pre></div></div>
+<p><code class="highlighter-rouge">taglist.vim</code> 파일은 <code class="highlighter-rouge">/usr/share/vim/vim8x/plugin/</code> 로 복사 해준다.</p>
+
+<h3 id="33-사용법">3.3 사용법</h3>
+<ul>
+  <li>vi로 파일을 열어준뒤 <code class="highlighter-rouge">:Tlist</code>를 입력해주면 리스트가 왼쪽에 나타난다. (다시 입력시 사라짐)
+    <ul>
+      <li>
+<code class="highlighter-rouge">Ctrl + ww</code>를 이용해 소스화면과 리스트 화면사이를 이동할 수 있다.</li>
+      <li>리스트에서 방향키를 통해 이동하고 싶은 함수로 간뒤, Enter를 누르면 해당 함수로 이동한다.</li>
+    </ul>
+  </li>
+  <li>다음과 같은 설정을 통해 더 편리하게 사용할 수 있다.
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
+let Tlist_Auto_Open=1 # 자동으로 taglist표시 (:Tlist 필요없음)
+let Tlist_Use_Right_Window = 1 # 리스트를 왼쪽이 아니라 오른쪽에 표시
+let Tlist_WinWidth = 35 # 리스트 창의 너비를 35로 조정
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr>
+
+<h2 id="4-마무리">4. 마무리</h2>
+<p>이정도의 설정을 마치면, 왠만한 소스코드를 분석하는데에는 문제 없을 것이다.</p>
+
+<p>추가로 ctags를 제일 먼저 사용하고 그다음에 안찾아지는 것은 cscope를 사용하는게 좋다.  <br>
+cscope가 ctags보다는 느리다. 그리고 taglist는 자동으로 띄워 놓는것보다는 단축키를 설정해서 필요할때만 보이게 하는게 좋다.   왜냐면 vi 편집기 종료할때 창을 두번 종료 해줘야 하기 때문이다.   <br>
+ctags를 우선적으로 사용하기 때문에 ctag의 이동하는 경우 두개도 단축키로 등록해놓는것도 좋다.</p>
+
+<p>다음은 내 사용하는 단축키 설정이다. (cscope는 사용할때마다 그냥 입력해서 쓴다)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">키</th>
+      <th style="text-align: center">기능</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">F5</code></td>
+      <td style="text-align: center">taglist</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">F6</code></td>
+      <td style="text-align: center">Ctrl + ]</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">F7</code></td>
+      <td style="text-align: center">Ctrl + t</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+  </div>
+
+  
+  <div id="post-disqus" class="container">
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tear94fall-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+  </div>
+  
+</article>
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                <span class="my-span-icon">
+                    <a href="http://localhost:4000/contact.html" aria-label="Contact" title="Contact ">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"></path></svg>
+                    </a>
+                </span>
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
