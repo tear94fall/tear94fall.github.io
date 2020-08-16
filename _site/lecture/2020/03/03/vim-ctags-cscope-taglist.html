@@ -211,7 +211,7 @@
 <p><strong>소스파일 내에 정의된 전역변수, 함수, 매크로, 구조체 등의 정보를 모아 데이터베이스 파일인 tags 파일을 생성하는 툴</strong></p>
 
 <h3 id="11-설치">1.1. 설치</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 데비안 게열
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 데비안 게열
 apt-get install ctags
 
 # 레드햇 계열
@@ -220,16 +220,16 @@ yum install ctags
 
 <h3 id="12-설정">1.2. 설정</h3>
 <p><strong>프로젝트 파일의 최상위 디렉토리로 이동한 뒤 실행해야 한다.</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tags 파일 생성
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tags 파일 생성
 ctags -R
 </code></pre></div></div>
 
 <p>다음은 .vimrc 파일에 tags파일의 경로를 설정해주어야 한다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
 set tags=/home/user/workspace/project/tags
 </code></pre></div></div>
 <p>아래와 같이 여러개를 등록하는것도 가능하다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set tags=./tags, /usr/src/linux/tags
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set tags=./tags, /usr/src/linux/tags
 </code></pre></div></div>
 
 <h3 id="13-사용법">1.3 사용법</h3>
@@ -242,7 +242,7 @@ set tags=/home/user/workspace/project/tags
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include "sum.h"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include "sum.h"
 
 int main(int agrc, char *argv[]){
     ...
@@ -251,7 +251,7 @@ int main(int agrc, char *argv[]){
 }
 </code></pre></div></div>
 
-<p>main함수에서 sum 함수에서 <code class="highlighter-rouge">Ctrl + ]</code>를 누르면 sum.h의 sum함수의 정의로 이동한다.</p>
+<p>main함수에서 sum 함수에서 <code class="language-plaintext highlighter-rouge">Ctrl + ]</code>를 누르면 sum.h의 sum함수의 정의로 이동한다.</p>
 
 <ul>
   <li>
@@ -262,12 +262,12 @@ int main(int agrc, char *argv[]){
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum(int num1, int num2){
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum(int num1, int num2){
     return num1 + num2;
 }
 </code></pre></div></div>
 
-<p>main 함수에서 <code class="highlighter-rouge">Ctrl + ]</code> 를 이용해 sum.h로 이동했다면, <code class="highlighter-rouge">Ctrl + t</code> 를 이용해서 다시 main함수로 돌아온다.</p>
+<p>main 함수에서 <code class="language-plaintext highlighter-rouge">Ctrl + ]</code> 를 이용해 sum.h로 이동했다면, <code class="language-plaintext highlighter-rouge">Ctrl + t</code> 를 이용해서 다시 main함수로 돌아온다.</p>
 
 <hr>
 
@@ -275,7 +275,7 @@ int main(int agrc, char *argv[]){
 <p><strong>ctags로 찾기 힘든 전역 변수의 사용이나, 함수의 호출등을 보기 위해서 사용하는 툴</strong></p>
 
 <h3 id="21-설치">2.1. 설치</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 데비안 게열
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 데비안 게열
 apt-get install cscope
 
 # 레드햇 계열
@@ -285,26 +285,26 @@ yum install cscope
 <h3 id="22-설정">2.2. 설정</h3>
 <p><strong>ctags와 달리 입력해야 될것이 많아서 스크립트 파일을 만들어서 사용</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="nb">rm</span> <span class="nt">-rf</span> cscope.files cscope.out
-find <span class="nb">.</span> <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> <span class="se">\(</span> <span class="nt">-name</span> <span class="s1">'*.c'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.cpp'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.cc'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.h'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*.s'</span> <span class="nt">-o</span> <span class="nt">-name</span> <span class="s1">'*S'</span> <span class="se">\)</span> <span class="nt">-print</span> <span class="o">&gt;</span> cscope.files
-cscope <span class="nt">-i</span> cscope.files
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+rm -rf cscope.files cscope.out
+find . `pwd` \( -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' -o -name '*.s' -o -name '*S' \) -print &gt; cscope.files
+cscope -i cscope.files
 </code></pre></div></div>
-<p>mkcscope.sh 파일을 생성하고, 스크립트 파일을 다음과 같이 작성한다. <code class="highlighter-rouge">pwd</code>를 꼭 입력해주도록 한다.</p>
+<p>mkcscope.sh 파일을 생성하고, 스크립트 파일을 다음과 같이 작성한다. <code class="language-plaintext highlighter-rouge">pwd</code>를 꼭 입력해주도록 한다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 755 mkcscope.sh
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 755 mkcscope.sh
 mv mkcscope.sh /usr/local/bin
 </code></pre></div></div>
 <p>또한 스크립트를 언제나 실행 할수있게 해준다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkcscope.sh
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkcscope.sh
 cscope.files cscope.out
 </code></pre></div></div>
 <p>이후 최상위 디렉토리에서 mkcscope.sh 파일을 실행해 데이터베이스 파일을 생성해준다.  <br>
-스크립트 파일을 실행한 후에는 <code class="highlighter-rouge">Ctrl + d</code> 를 입력하면 끝이난다.   <br>
-실행이 완료된 뒤에는 <code class="highlighter-rouge">cscope.files</code>와 <code class="highlighter-rouge">cscope.out</code>파일이 생성된다.</p>
+스크립트 파일을 실행한 후에는 <code class="language-plaintext highlighter-rouge">Ctrl + d</code> 를 입력하면 끝이난다.   <br>
+실행이 완료된 뒤에는 <code class="language-plaintext highlighter-rouge">cscope.files</code>와 <code class="language-plaintext highlighter-rouge">cscope.out</code>파일이 생성된다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
 set csprg=/usr/bin/cscope
 set csto=0
 set cst
@@ -328,7 +328,7 @@ set csverb
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi sum.h
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi sum.h
 int sum(int num1, int num2){
     return num1 + num2;
 }
@@ -341,35 +341,35 @@ int sum(int num1, int num2){
 <p><strong>vim사용시 소스파일의 변수와 함수등을 화면 옆면에 리스트로 보여주는 툴</strong></p>
 
 <h3 id="31-설치">3.1. 설치</h3>
-<p><code class="highlighter-rouge">http://vim-taglist.sourceforge.net/download.html</code> 에서 taglist를 다운받는다.</p>
+<p><code class="language-plaintext highlighter-rouge">http://vim-taglist.sourceforge.net/download.html</code> 에서 taglist를 다운받는다.</p>
 
 <h3 id="32-설정">3.2. 설정</h3>
 <p><strong>압축 해제 후 파일을 vim의 경로에 복사해준다.</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ unzip taglist.zip
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ unzip taglist.zip
 /doc /plugin
 </code></pre></div></div>
-<p>다운 후 압축을 풀면 <code class="highlighter-rouge">/doc/taglist.txt</code>와 <code class="highlighter-rouge">/plugin/taglist.vim</code>의 두개의 디렉토리안에 파일이 있다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/doc/taglist.txt
+<p>다운 후 압축을 풀면 <code class="language-plaintext highlighter-rouge">/doc/taglist.txt</code>와 <code class="language-plaintext highlighter-rouge">/plugin/taglist.vim</code>의 두개의 디렉토리안에 파일이 있다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/doc/taglist.txt
 /usr/share/vim/vim8x/doc/
 </code></pre></div></div>
-<p><code class="highlighter-rouge">taglist.txt</code> 파일은 <code class="highlighter-rouge">/usr/share/vim/vim8x/doc/</code> 로 복사 해준다.</p>
+<p><code class="language-plaintext highlighter-rouge">taglist.txt</code> 파일은 <code class="language-plaintext highlighter-rouge">/usr/share/vim/vim8x/doc/</code> 로 복사 해준다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/plugin/taglist.vim
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/plugin/taglist.vim
 /usr/share/vim/vim8x/plugin/ 에 복사
 </code></pre></div></div>
-<p><code class="highlighter-rouge">taglist.vim</code> 파일은 <code class="highlighter-rouge">/usr/share/vim/vim8x/plugin/</code> 로 복사 해준다.</p>
+<p><code class="language-plaintext highlighter-rouge">taglist.vim</code> 파일은 <code class="language-plaintext highlighter-rouge">/usr/share/vim/vim8x/plugin/</code> 로 복사 해준다.</p>
 
 <h3 id="33-사용법">3.3 사용법</h3>
 <ul>
-  <li>vi로 파일을 열어준뒤 <code class="highlighter-rouge">:Tlist</code>를 입력해주면 리스트가 왼쪽에 나타난다. (다시 입력시 사라짐)
+  <li>vi로 파일을 열어준뒤 <code class="language-plaintext highlighter-rouge">:Tlist</code>를 입력해주면 리스트가 왼쪽에 나타난다. (다시 입력시 사라짐)
     <ul>
       <li>
-<code class="highlighter-rouge">Ctrl + ww</code>를 이용해 소스화면과 리스트 화면사이를 이동할 수 있다.</li>
+<code class="language-plaintext highlighter-rouge">Ctrl + ww</code>를 이용해 소스화면과 리스트 화면사이를 이동할 수 있다.</li>
       <li>리스트에서 방향키를 통해 이동하고 싶은 함수로 간뒤, Enter를 누르면 해당 함수로 이동한다.</li>
     </ul>
   </li>
   <li>다음과 같은 설정을 통해 더 편리하게 사용할 수 있다.
-    <div class="highlighter-rouge">
+    <div class="language-plaintext highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>$ vi ~/.vimrc
 let Tlist_Auto_Open=1 # 자동으로 taglist표시 (:Tlist 필요없음)
 let Tlist_Use_Right_Window = 1 # 리스트를 왼쪽이 아니라 오른쪽에 표시
@@ -398,15 +398,15 @@ ctags를 우선적으로 사용하기 때문에 ctag의 이동하는 경우 두�
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">F5</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">F5</code></td>
       <td style="text-align: center">taglist</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">F6</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">F6</code></td>
       <td style="text-align: center">Ctrl + ]</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code class="highlighter-rouge">F7</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">F7</code></td>
       <td style="text-align: center">Ctrl + t</td>
     </tr>
   </tbody>

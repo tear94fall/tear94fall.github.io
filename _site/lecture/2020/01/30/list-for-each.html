@@ -219,12 +219,12 @@
 
 <h3 id="11-include">1.1 Include</h3>
 <p>list_for_each() 함수는 &lt;linux/list.h&gt;에 선언되어있습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h &gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h &gt;
 </code></pre></div></div>
 
 <h3 id="12-function">1.2 Function</h3>
 <p>함수의 원형은 다음과 같습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define list_for_each(pos, head) \
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define list_for_each(pos, head) \
     for (pos = (head)-&gt;next; pos != (head); pos = pos-&gt;next)
 </code></pre></div></div>
 
@@ -244,7 +244,7 @@
 </ul>
 
 <h3 id="14-example">1.4 Example</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct list_head *ptr;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct list_head *ptr;
 struct list_node *node;
 
 list_for_each(ptr, &amp;my_list){
@@ -259,12 +259,12 @@ list_for_each(ptr, &amp;my_list){
 
 <h3 id="21-include">2.1 Include</h3>
 <p>list_for_each() 함수는 &lt;linux/list.h&gt;에 선언되어있습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h &gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h &gt;
 </code></pre></div></div>
 
 <h3 id="22-function">2.2 Function</h3>
 <p>함수의 원형은 다음과 같습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define list_for_each_entry(pos, head, member)              \
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define list_for_each_entry(pos, head, member)              \
     for (pos = list_entry((head)-&gt;next, typeof(*pos), member);   \
          &amp;pos-&gt;member != (head);     \
          pos = list_entry(pos-&gt;member.next, typeof(*pos), member))
@@ -291,7 +291,7 @@ list_for_each(ptr, &amp;my_list){
 </ul>
 
 <h3 id="24-example">2.4 Example</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;linux/list.h&gt;
 
 struct Node{
     int Data;

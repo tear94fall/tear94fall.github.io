@@ -211,12 +211,12 @@
 <p>strtok()함수의 tok은 token을 의미합니다.</p>
 <h3 id="11-include">1.1 Include</h3>
 <p>strtok()함수를 사용하기 위해서는 <string.h> 헤더가 필요합니다.</string.h></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;string.h&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;string.h&gt;
 </code></pre></div></div>
 
 <h3 id="12-function">1.2 Function</h3>
 <p>함수의 원형은 다음과 같습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char *strtok(char *str, const char *delimiters);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char *strtok(char *str, const char *delimiters);
 </code></pre></div></div>
 
 <h3 id="13-parameters">1.3 Parameters</h3>
@@ -231,9 +231,9 @@
     <ul>
       <li>자를 기준을 정하는 구분자 입니다.</li>
       <li>
-<code class="highlighter-rouge">_</code> 처럼 한개의 문자 사용도 가능 하지만, <code class="highlighter-rouge">_:</code>처럼 문자열 사용도 가능합니다.
+<code class="language-plaintext highlighter-rouge">_</code> 처럼 한개의 문자 사용도 가능 하지만, <code class="language-plaintext highlighter-rouge">_:</code>처럼 문자열 사용도 가능합니다.
         <ul>
-          <li>여러개 사용시에는 <code class="highlighter-rouge">_:</code> 를 하나의 구분자로 다루는것이 아니라 <code class="highlighter-rouge">_</code>와 <code class="highlighter-rouge">:</code>로 문자열을 구분한다.</li>
+          <li>여러개 사용시에는 <code class="language-plaintext highlighter-rouge">_:</code> 를 하나의 구분자로 다루는것이 아니라 <code class="language-plaintext highlighter-rouge">_</code>와 <code class="language-plaintext highlighter-rouge">:</code>로 문자열을 구분한다.</li>
         </ul>
       </li>
     </ul>
@@ -250,7 +250,7 @@
 </ul>
 
 <h3 id="15-example">1.5 Example</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;cstdio&gt; 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;cstdio&gt; 
 #include &lt;string.h&gt;
 
 int main(int argc, char *argv[]) { 
@@ -341,7 +341,7 @@ int main(int argc, char *argv[]) {
 </table>
 
 <p>결과 값</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I
 LOVE
 YOU
 </code></pre></div></div>
@@ -350,23 +350,23 @@ YOU
 <ul>
   <li>Multi-thread 환경에서 사용을 주의 하자.
     <ul>
-      <li>위 코드에서 루프문에서는 <code class="highlighter-rouge">ptr = strtok(NULL, delimiter);</code>를 사용합니다.
+      <li>위 코드에서 루프문에서는 <code class="language-plaintext highlighter-rouge">ptr = strtok(NULL, delimiter);</code>를 사용합니다.
 두번째 인자로 NULL을 사용하는데 이는 내부적으로 static 변수를 공유하여 사용하며 처리한다.<br>
 Multi-thread 환경에서는 strtok_r 함수를 사용하도록 하자.</li>
     </ul>
   </li>
   <li>연속된 구분자의 사용을 주의 하자.
     <ul>
-      <li>문자열에서 구분자가 연속으로 있는 경우에 연속된 구분자 사이의 <code class="highlighter-rouge">공백</code> 값은 반환되지 않습니다.<br>
-또한 구분자로 시작하거나 구분자로 끝나는 문자열의 경우에도 양쪽 끝의 <code class="highlighter-rouge">공백</code> 값은 반환되지 않습니다.<br>
-문자열 <code class="highlighter-rouge">A,B,,C,D</code>를 분리할 경우 <code class="highlighter-rouge">A</code>, <code class="highlighter-rouge">B</code>, <code class="highlighter-rouge">공백</code>, <code class="highlighter-rouge">C</code>, <code class="highlighter-rouge">D</code>로 분리되는 것이 아니라 <code class="highlighter-rouge">A</code>, <code class="highlighter-rouge">B</code>, <code class="highlighter-rouge">C</code>, <code class="highlighter-rouge">D</code>로 분리됩니다.</li>
+      <li>문자열에서 구분자가 연속으로 있는 경우에 연속된 구분자 사이의 <code class="language-plaintext highlighter-rouge">공백</code> 값은 반환되지 않습니다.<br>
+또한 구분자로 시작하거나 구분자로 끝나는 문자열의 경우에도 양쪽 끝의 <code class="language-plaintext highlighter-rouge">공백</code> 값은 반환되지 않습니다.<br>
+문자열 <code class="language-plaintext highlighter-rouge">A,B,,C,D</code>를 분리할 경우 <code class="language-plaintext highlighter-rouge">A</code>, <code class="language-plaintext highlighter-rouge">B</code>, <code class="language-plaintext highlighter-rouge">공백</code>, <code class="language-plaintext highlighter-rouge">C</code>, <code class="language-plaintext highlighter-rouge">D</code>로 분리되는 것이 아니라 <code class="language-plaintext highlighter-rouge">A</code>, <code class="language-plaintext highlighter-rouge">B</code>, <code class="language-plaintext highlighter-rouge">C</code>, <code class="language-plaintext highlighter-rouge">D</code>로 분리됩니다.</li>
     </ul>
   </li>
   <li>인자로 전달되는 원본값 훼손을 주의 하자.
     <ul>
       <li>파라미터 type에 const 가 없음으로 유추가 가능한 내용이다.
 원본이 변형되면 안되는 경우에는, 함수 수행전에 원본값을 저장해서 사용해야한다.<br>
-위 코드에서 str문자열은 <code class="highlighter-rouge">I LOVE YOU</code>으로 되어있다. 함수 수행후 <code class="highlighter-rouge">빈칸</code>은 모두 <code class="highlighter-rouge">NULL</code>로 변경된다.</li>
+위 코드에서 str문자열은 <code class="language-plaintext highlighter-rouge">I LOVE YOU</code>으로 되어있다. 함수 수행후 <code class="language-plaintext highlighter-rouge">빈칸</code>은 모두 <code class="language-plaintext highlighter-rouge">NULL</code>로 변경된다.</li>
     </ul>
   </li>
 </ul>
@@ -378,8 +378,8 @@ Multi-thread 환경에서는 strtok_r 함수를 사용하도록 하자.</li>
 
 <h3 id="11-function">1.1 Function</h3>
 <p>함수의 원형은 다음과 같습니다.<br>
-strtok() 함수에서 세번째 인자인 <code class="highlighter-rouge">char **ptrptr</code>가 추가되었습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char *strtok_r(char *str, const char *delimiters, char **ptrptr);
+strtok() 함수에서 세번째 인자인 <code class="language-plaintext highlighter-rouge">char **ptrptr</code>가 추가되었습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char *strtok_r(char *str, const char *delimiters, char **ptrptr);
 </code></pre></div></div>
 
 <h3 id="12-parameters">1.2 Parameters</h3>
@@ -394,7 +394,7 @@ strtok() 함수에서 세번째 인자인 <code class="highlighter-rouge">char *
     <ul>
       <li>구분자를 기준으로 자른 문자열을 저장하는 함수이다.</li>
       <li>
-<code class="highlighter-rouge">A,B,C,D</code>를 <code class="highlighter-rouge">,</code>기준으로 자를 경우 <code class="highlighter-rouge">B,C,D</code>가 저장된다.</li>
+<code class="language-plaintext highlighter-rouge">A,B,C,D</code>를 <code class="language-plaintext highlighter-rouge">,</code>기준으로 자를 경우 <code class="language-plaintext highlighter-rouge">B,C,D</code>가 저장된다.</li>
       <li>strtok() 함수에서는 내부적으로 static 변수를 사용하여 Thread-safe하지 않다. <br>
 하지만 strtok_r() 함수에서는 Thread-safe하기 위해 외부변수인 **ptrptr을 사용하는 것입니다.</li>
     </ul>
