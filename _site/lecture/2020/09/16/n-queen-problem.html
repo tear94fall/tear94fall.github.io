@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[Algorithm] N-Queen 문제</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="얼핏 보면 매우 간단해 보이는 문제이지만, 생각보다 꽤 많은 시간을 고민 했던 문제이다. 처음에 구상한 대각선을 체크하는 코드가 맞다고 생각하고 원인을 게속 찾다보니, 결국 대각선에 위치했는지 확인하는 코드가 문제였다. 개인적으로 재밌게 푼 문제이기도 하고, 정리할겸 포스팅을 해보려고 한다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="lecture" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[Algorithm] N-Queen 문제" />
+<meta name="twitter:description" content="얼핏 보면 매우 간단해 보이는 문제이지만, 생각보다 꽤 많은 시간을 고민 했던 문제이다. 처음에 구상한 대각선을 체크하는 코드가 맞다고 생각하고 원인을 게속 찾다보니, 결국 대각선에 위치했는지 확인하는 코드가 문제였다. 개인적으로 재밌게 푼 문제이기도 하고, 정리할겸 포스팅을 해보려고 한다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//lecture/2020/09/16/n-queen-problem.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[Algorithm] N-Queen 문제" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//lecture/2020/09/16/n-queen-problem.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="얼핏 보면 매우 간단해 보이는 문제이지만, 생각보다 꽤 많은 시간을 고민 했던 문제이다. 처음에 구상한 대각선을 체크하는 코드가 맞다고 생각하고 원인을 게속 찾다보니, 결국 대각선에 위치했는지 확인하는 코드가 문제였다. 개인적으로 재밌게 푼 문제이기도 하고, 정리할겸 포스팅을 해보려고 한다." />
+<meta property="og:site_name" content="Cayman Blog Theme" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2020-09-16T09:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="lecture" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/lecture/2020/09/16/n-queen-problem.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">Cayman Blog Theme</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/now.html">Now</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/contact.html">Contact</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[Algorithm] N-Queen 문제</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2020-09-16T09:00:00+09:00" itemprop="datePublished">
+                    
+                    Sep 16, 2020
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[Algorithm] N-Queen 문제</h1>
+    <p class="post-meta">
+      <time datetime="2020-09-16T09:00:00+09:00" itemprop="datePublished">
+        
+        Sep 16, 2020
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>얼핏 보면 매우 간단해 보이는 문제이지만, 생각보다 꽤 많은 시간을 고민 했던 문제이다. <br>
+처음에 구상한 대각선을 체크하는 코드가 맞다고 생각하고 원인을 게속 찾다보니, 결국 대각선에 위치했는지 확인하는 코드가 문제였다.
+개인적으로 재밌게 푼 문제이기도 하고, 정리할겸 포스팅을 해보려고 한다.</p>
+
+<hr>
+
+<h2 id="1-n-queen-문제">1. N-Queen 문제</h2>
+<h3 id="11-문제-소개">1.1 문제 소개</h3>
+
+<p>체스를 해본적이 있는가? 체스는 <code class="language-plaintext highlighter-rouge">8 x 8</code> 크기의 판에서 말을 움직여 승부를 겨루는 게임이다.</p>
+
+<p><img src="/image/NQueen/chess-board.jpg" alt="Image Alt 텍스트" width="49%" height="49%"></p>
+
+<p>체스를 잘 안다면 이미 알고 있겠지만, 체스를 잘 모르는 사람도 있을수 있으니 설명하자면, <br>
+문제에서 사용되는 퀸(Queen)은 왼쪽하단의 그림과 같이 상하좌우, 대각선으로 칸수에 관계없이 움직일 수 있다.</p>
+
+<p><img src="/image/NQueen/queen-attack-range.jpg" alt="Image Alt 텍스트" width="49%" height="49%">
+<img src="/image/NQueen/nqueen-solve.jpg" alt="Image Alt 텍스트" width="49%" height="49%"></p>
+
+<p>N-Queen 문제는 딱 한 문장으로 설명이 가능하다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>크기가 N x N 인 체스판 위에 퀸 N 개가 서로를 공격 할 수 없게 놓는 경우의 수를 구하는 문제이다.  
+</code></pre></div></div>
+
+<p>N개의 서로 다른 퀸이 서로를 공격할 수 없도록 N개의 퀸을 놓으려면, 오른쪽상단의 그림과 같이 놓아야 한다. <br>
+이렇게 서로의 공격할 수 없는 N개의 퀸을 놓을 수있는 경우의 수가 문제의 정답이다.</p>
+
+<h2 id="2-문제-해결-과정">2. 문제 해결 과정</h2>
+<h3 id="21-첫번째-퀸의-위치">2.1. 첫번째 퀸의 위치</h3>
+
+<p>어떻게 접근 해야할까 생각하다가 직접 퀸을 놓아 보았다. 가장 먼저 왼쪽 맨위 모서리인 <code class="language-plaintext highlighter-rouge">A8</code>에 퀸을 놓았다.</p>
+
+<p><img src="/image/NQueen/first-queen-position.jpg" alt="Image Alt 텍스트" width="49%" height="49%">
+<img src="/image/NQueen/first-queen-range.jpg" alt="Image Alt 텍스트" width="49%" height="49%"></p>
+
+<p>머리속으로 상상하기 어려우면 종이에 직접 체스판을 그려보면서 이해하는 것을 추천한다.<br>
+퀸을 놓고, 다음 퀸을 놓을 수 없는 위치는 칠해가는 방식으로 말이다. <br>
+<code class="language-plaintext highlighter-rouge">A8</code>의 위치에 퀸을 놓았을때 다음 퀸을 놓을 수 없는 위치는 <code class="language-plaintext highlighter-rouge">X</code>자로 표시해둔다.</p>
+
+<h3 id="22-두번째-퀸의-위치">2.2 두번째 퀸의 위치</h3>
+
+<p>첫번째 퀸을 놓으면서 칠해 놓은 자리에는 퀸을 놓을 수없으므로, 두번째 퀸은 가능한 자리에 놓아준다.</p>
+
+<p><img src="/image/NQueen/second-queen-position.jpg" alt="Image Alt 텍스트" width="49%" height="49%">
+<img src="/image/NQueen/second-queen-range.jpg" alt="Image Alt 텍스트" width="49%" height="49%"></p>
+
+<p>역시, 두번째 퀸을 놓은뒤에 다음 퀸을 놓을 수 없는 자리는 X자로 표시해둔다. <br>
+이렇게 N개의 퀸을 놓을때 까지, 첫번째~두번째 퀸을 놓으면서 했던 작업을 반복 한다. <br>
+N개의 퀸이 모두 놓여졌을 때마다 +1을 해준다면, 정답을 얻을 수 있다.</p>
+
+<h3 id="23-문제-해결">2.3 문제 해결</h3>
+
+<p>체스판에 퀸(Queen)을 새롭게 놓을 때마다 확인해야 하는것은 다음과 같다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 상하좌우 같은 줄에 이미 위치한 퀸(Queen)이 있는가?
+2. 대각선의 같은 줄에 이미 위치한 퀸(Queen)이 있는가?
+3. 현재 놓는 퀸이 N번째(마지막) 퀸(Queen)인가?
+</code></pre></div></div>
+
+<ul>
+  <li>1번과 2번
+    <ul>
+      <li>1번과 2번에 해당하는 경우 다음퀸을 놓지 않아도 된다.</li>
+      <li>이전 상태로 돌아가 다시 퀸을 놓는다. <code class="language-plaintext highlighter-rouge">백트래킹 알고리즘</code>
+</li>
+      <li>1번과 2번에 해당하지 않는 경우에는 다음 퀸을 놓는다.</li>
+    </ul>
+  </li>
+  <li>3번에
+    <ul>
+      <li>현재 놓는 퀸이 N번째 퀸인 경우는 정답이므로 퀴을 놓는 경우의 수를 1 추가 해준다.</li>
+      <li>현재 놓는 퀸이 N번째 퀸이 아닌경우에는 다음 퀸을 놓는다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="24-백트래킹-back-tracking">2.4 백트래킹 (Back-tracking)</h3>
+
+<p>N-Queen 문제를 푸는 가장 쉽고도 간단한 방법은 모든 경우의 수를 조사하는 방법이다. <br>
+하지만 다음 퀸을 놓을 수 없을 경우에 그이후 과정을 생략한다면 좀 더 빠르게 정답을 구할 수 있을것이다. <br>
+퀸을 놓을 수 없는 경우를 확인 하기 위해서는, 위의 3가지 조건을 모두 따져본다.</p>
+
+<p><img src="/image/NQueen/first-queen-position.jpg" alt="Image Alt 텍스트" width="24%" height="24%">
+<img src="/image/NQueen/wrong-position.jpg" alt="Image Alt 텍스트" width="24%" height="24%"></p>
+
+<p><code class="language-plaintext highlighter-rouge">A8</code>에 퀸을 놓았을 경우 다음 퀸을 놓으려고 할때, <code class="language-plaintext highlighter-rouge">B8</code>에 놓을 수 없다. <br>
+이때 다음 퀸을 놓을지 생각하지 말고 다시 <code class="language-plaintext highlighter-rouge">A8</code>에 퀸이 놓여있는 상황으로 다시 돌아간다.</p>
+
+<p><img src="/image/NQueen/first-queen-position.jpg" alt="Image Alt 텍스트" width="24%" height="24%">
+<img src="/image/NQueen/wrong-position2.jpg" alt="Image Alt 텍스트" width="24%" height="24%"></p>
+
+<p>방금전 상황에서 <code class="language-plaintext highlighter-rouge">B8</code>에 퀸을 놓을 수 없다는것을 알았으므로, 다음 위치인 <code class="language-plaintext highlighter-rouge">B7</code>에 퀸을 놓는 것을 생각해 볼 수 있다. <br>
+하지만, <code class="language-plaintext highlighter-rouge">A8</code>의 퀸의 대각선에 위치하므로 놓을 수 없다. 다시 <code class="language-plaintext highlighter-rouge">A8</code>만 놓여져 있는 상황으로 다시 돌아간다.  <br>
+역시 다음 퀸을 놓는 것은 생각하지 않는다.</p>
+
+<p><img src="/image/NQueen/first-queen-position.jpg" alt="Image Alt 텍스트" width="24%" height="24%">
+<img src="/image/NQueen/second-queen-position.jpg" alt="Image Alt 텍스트" width="24%" height="24%"></p>
+
+<p>방금전 두 상황에서 <code class="language-plaintext highlighter-rouge">B8</code>, <code class="language-plaintext highlighter-rouge">B7</code>에는 퀸을 놓을 수 없다는 것을 깨달았다. <br>
+이제 다음 위치인 <code class="language-plaintext highlighter-rouge">B6</code>에 퀸을 놓으려고 한다. 위에서 퀸을 놓을때마다 체크해야 하는 3가지 상황을 체크 한다. <br>
+모두 해당되지 않는다. 즉, <code class="language-plaintext highlighter-rouge">B6</code>에는 퀸을 놓을 수 있다. (상하좌우 대각선에 퀸이 없고, 마지막 퀸이 아니다)  <br>
+따라서 다음 퀸을 놓는 방법을 생각한다.</p>
+
+<p>위의 과정에서 알 수 있듯이 백트래킹 알고리즘은 가능한 경우만 수행하는 알고리즘이다.<br>
+수행 가능하지 않다면 수행하지 않고, 이전으로 돌아가 수행 가능한 방법을 찾는 알고리즘이다.</p>
+
+<h2 id="3-구현">3. 구현</h2>
+<h3 id="31-핵심-코드">3.1 핵심 코드</h3>
+<p>처음 문제를 풀때 2차원 배열을 생각했다. 퀸의 위치를 x, y 좌표로 표시하면 매우 편리 할것이라고 생각했다.   <br>
+체스 판으로 사용할 2차원 배열 1개와 방문을 확인 하는 2차원 배열 1개를 사용했으나, 시간이 꽤나 오래 걸렸다.  <br>
+특히나 숫자가 커질수록 엄청난 시간이 소모되었다. 따라서 1차원 배열을 통해서 문제를 풀어야 했다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">board</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="p">};</span> <span class="c1">// chess 판</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// 1번째 column에 위치한 퀸의 좌표</span>
+<span class="n">board</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="c1">// 2번쨰 column에 위치한 퀸의 좌표</span>
+</code></pre></div></div>
+<p><strong>쉬운 설명을 위해서 퀸의 위치를 x, y 좌표로 표현, 실제 좌표값은 i (x), board[i] (y)가 된다.</strong> <br>
+이전에 놓여진 퀸의 좌표 값을 x1, y1 이라고 하고, 새로 놓을 퀸의 좌표를 x2, y2라고 할때
+새로 놓으려고 하는 퀸이 이전 퀸의 대각선에 있는지 확인하는 코드는 다음과 같다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">((</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">||</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)){</span>
+    <span class="c1">// 대각선에 위치하고 있음</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>다음의 로직을 첫번째 퀸이 놓여진 column 부터 놓으려고 하기 직전 column까지 확인 해야한다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">column</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">||</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)){</span>
+        <span class="c1">// 대각선에 위치하고 있음</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>또한 놓으려고 하는 퀸의 위치가 같은 줄에 위치해 있는지 확인해야 하는 로직이 필요하다. <br>
+column의 위치는 for 문을 통해 1씩 증가시킬 것이므로 확인할 필요가 없다. y 좌표값만 비교해준다. <br>
+<code class="language-plaintext highlighter-rouge">y1, y2</code>가 일치하는 로직 역시 for을 통해 이전에 위치한 퀸은 row 위치를 계속 비교해준다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">column</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">y1</span><span class="o">==</span><span class="n">y2</span><span class="p">){</span>
+        <span class="c1">// 같은 줄에 위치하고 있음</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이제 퀸을 놓을 때마다 대각선에 위치한 퀸인지 확인하고, 같은 라인에 위치하는지 확인해준다. <br>
+만일 퀸을 놓을 수 있는 경우라면 퀸을 놓을 자리를 계속해서 찾아는 방법으로 코드를 작성해 나간다. <br>
+위의 코드를 토대로 하여 최종적으로 완성된 코드를 작성한다.</p>
+
+<h3 id="32-전체-코드">3.2 전체 코드</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;cstdio&gt;
+</span>
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">temp</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">nqueen</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+	
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+        <span class="n">nqueen</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">cnt</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">nqueen</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">col</span><span class="o">==</span><span class="n">n</span><span class="p">){</span>
+        <span class="n">cnt</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+	
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">col</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">temp</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="n">temp</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">||</span><span class="p">((</span><span class="n">j</span><span class="o">-</span><span class="n">col</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">temp</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span><span class="o">||</span><span class="p">((</span><span class="n">j</span><span class="o">-</span><span class="n">col</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">-</span><span class="n">temp</span><span class="p">[</span><span class="n">j</span><span class="p">]))){</span>
+                <span class="n">check</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+		
+        <span class="k">if</span><span class="p">(</span><span class="n">check</span><span class="p">){</span>
+            <span class="n">nqueen</span><span class="p">(</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr>
+
+  </div>
+
+  
+  <div id="post-disqus" class="container">
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tear94fall-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+  </div>
+  
+</article>
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                <span class="my-span-icon">
+                    <a href="http://localhost:4000/contact.html" aria-label="Contact" title="Contact ">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"></path></svg>
+                    </a>
+                </span>
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
