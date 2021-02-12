@@ -3,6 +3,21 @@
       
         
         <url>
+          <loc>http://localhost:4000/essay/2020/12/31/retrospective-of-2020.html</loc>
+          
+            <lastmod>2020-12-31T09:00:00+09:00</lastmod>
+          
+          
+            <changefreq>monthly</changefreq>
+          
+          
+            <priority>0.5</priority>
+          
+        </url>
+        
+      
+        
+        <url>
           <loc>http://localhost:4000/lecture/2020/09/16/n-queen-problem.html</loc>
           
             <lastmod>2020-09-16T09:00:00+09:00</lastmod>
