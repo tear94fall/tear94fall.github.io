@@ -153,8 +153,8 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 시간 참 빠른것같다. 길지는 않은 기간인 3개월 정도 같이 지냈지만, 정말 이런저런 애기를 많이 나누었다.   
 회사를 다니면서 마지막 분기의 3개월 동안 참 많은 변화가 있기도 했다.    
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/messanger-talk-1.png ){: width="30%" height="30%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/messanger-talk-2.png ){: width="30%" height="30%"}    
+![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/messanger-talk-1.PNG ){: width="30%" height="30%"}
+![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/messanger-talk-2.PNG ){: width="30%" height="30%"}    
 
 지금도 궁금증이나 내가 경험해보지 못한 것들 그리고 어떠한 선택을 해야할때 과장님 의견을 조심스레 항상 여쭤본다.    
 나보다 많은 연차인데, 맘편히 대화를 걸수 있는 상대가 있다는건 큰 축복이다. 무엇보다 대화를 하면 배울게 많다.   
@@ -189,7 +189,7 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 결과는 우수상이라고 했다. 우수상인데 왜 전화하시나 싶었는데, 수상식에 참여하여 발표를 해달라는 전화였다.   
 평가 순위 3위까지 발표한다고 하셨고, 난 2등이었다고 한다. (좀만 더 열심히 했으면... 하고 후회 했다)    
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/excellence-award-reward.png ){: width="40%" height="40%"}    
+![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/excellence-award-reward.PNG ){: width="40%" height="40%"}    
 
 상금은 30만원(세전...)을 받게 되었다. 문제는 발표인데, 처음에는 약 15분 가량 준비를 해달라고 하셨다.    
 그래서 공모전 수기 작성할때 패턴과 동일하게 발표자료를 일주일 동안 준비했다.    
