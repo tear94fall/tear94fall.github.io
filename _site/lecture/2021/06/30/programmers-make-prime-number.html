@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id={"id"=>"G-MTDBM55JE1"}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{"id"=>"G-MTDBM55JE1"}');
+    </script>
+    
+    
+    <!-- Non social metatags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    <title>[Algorithm] 프로그래머스 - 소수 만들기</title>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Place this data between the <head> tags of your website -->
+
+<meta name="description" content="프로그래머스에서 푼 문제이다. 알고리즘 문제를 풀때마다 느끼는 거지만, 접근 방법은 다양한 것 같다. 난 보자마자 DFS로 풀어야 겠다라고 생각했고 풀었는데, 다른 분들 풀이를 보니 다양한 방법으로 푸셨다. 문제를 풀었다는 것 자체보다 왜 그런 결론에 도달 했는지, 왜 그렇게 생각했는지가 중요하므로 기록으로 남겨두려고 한다." />
+
+
+
+  <meta name="keywords" itemprop="categories" content="lecture" />
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image" />
+
+
+
+<meta name="twitter:title" content="[Algorithm] 프로그래머스 - 소수 만들기" />
+<meta name="twitter:description" content="프로그래머스에서 푼 문제이다. 알고리즘 문제를 풀때마다 느끼는 거지만, 접근 방법은 다양한 것 같다. 난 보자마자 DFS로 풀어야 겠다라고 생각했고 풀었는데, 다른 분들 풀이를 보니 다양한 방법으로 푸셨다. 문제를 풀었다는 것 자체보다 왜 그런 결론에 도달 했는지, 왜 그렇게 생각했는지가 중요하므로 기록으로 남겨두려고 한다." />
+
+
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+
+  <meta name="twitter:image:src" content="http://localhost:4000/thumbnail-jumbo.png" />
+  <meta name="twitter:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta name="twitter:url" content="http://localhost:4000//lecture/2021/06/30/programmers-make-prime-number.html" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="[Algorithm] 프로그래머스 - 소수 만들기" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:4000//lecture/2021/06/30/programmers-make-prime-number.html" />
+
+
+  <meta property="og:image" content="http://localhost:4000/thumbnail-jumbo.png" />
+
+<meta property="og:description" content="프로그래머스에서 푼 문제이다. 알고리즘 문제를 풀때마다 느끼는 거지만, 접근 방법은 다양한 것 같다. 난 보자마자 DFS로 풀어야 겠다라고 생각했고 풀었는데, 다른 분들 풀이를 보니 다양한 방법으로 푸셨다. 문제를 풀었다는 것 자체보다 왜 그런 결론에 도달 했는지, 왜 그렇게 생각했는지가 중요하므로 기록으로 남겨두려고 한다." />
+<meta property="og:site_name" content="Cayman Blog Theme" />
+
+
+<meta property="og:locale" content="" />
+
+
+  <meta property="article:published_time" content="2021-06-30T09:00:00+09:00" />
+
+
+
+
+  
+
+
+
+
+
+  
+    <meta property="article:tag" content="lecture" />
+  
+
+
+
+
+    
+    
+    <link rel="canonical" href="http://localhost:4000/lecture/2021/06/30/programmers-make-prime-number.html">
+    
+    
+    
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta name="robots" content="noarchive">
+    
+    <!-- <link rel="alternate" media="only screen and (max-width: 640px)" href="">
+        <link rel="alternate" media="handheld" href=""> -->
+        
+        
+        <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css?v=">
+    </head>
+    <body>
+        
+        <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="http://localhost:4000/">Cayman Blog Theme</a>
+    
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"></path>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/now.html">Now</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/about.html">About</a>
+              
+            
+          
+            
+            
+              
+                <a class="page-link" href="http://localhost:4000/contact.html">Contact</a>
+              
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+        
+        
+        
+        
+        
+        <section class="page-header">
+            <h1 class="project-name">[Algorithm] 프로그래머스 - 소수 만들기</h1>
+            <h2 class="project-tagline"></h2>
+            
+            <!-- Post tagline -->
+            
+            <h2 class="project-date">
+                <time datetime="2021-06-30T09:00:00+09:00" itemprop="datePublished">
+                    
+                    Jun 30, 2021
+                </time>
+                
+                
+                • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+                
+            </h2>
+            
+            <!-- End: Post tagline -->
+        </section>
+        
+        <section class="main-content">
+            
+            <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[Algorithm] 프로그래머스 - 소수 만들기</h1>
+    <p class="post-meta">
+      <time datetime="2021-06-30T09:00:00+09:00" itemprop="datePublished">
+        
+        Jun 30, 2021
+      </time>
+      
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Joonsub, Lim</span></span>
+      </p>
+  </header> -->
+
+  <div itemprop="articleBody">
+    <p>프로그래머스에서 푼 문제이다. 알고리즘 문제를 풀때마다 느끼는 거지만, 접근 방법은 다양한 것 같다. <br>
+난 보자마자 DFS로 풀어야 겠다라고 생각했고 풀었는데, 다른 분들 풀이를 보니 다양한 방법으로 푸셨다.  <br>
+문제를 풀었다는 것 자체보다 왜 그런 결론에 도달 했는지, 왜 그렇게 생각했는지가 중요하므로 기록으로 남겨두려고 한다.</p>
+
+<hr>
+
+<p>문제 풀이에 앞서 하고싶은 말을 간략하게 하고 시작 하려고 한다.   <br>
+이 문제를 다 풀고 다른 사람의 풀이를 보는데 대부분 정답은 비슷했다.   <br>
+만약 문제를 푸신 분이라면, 이 문제 만큼은 꼭 다른분들 풀이를 자세히 보길 바란다.   <br>
+아마 보다보면 궁금증이 생길거라고 생각한다. 대부분의 풀이는 for문을 3중으로 사용하여 제출 되었다.   <br>
+무엇이 문제냐? 라고 할 수도 있다. 그럼 이 글을 다 읽고 다시 풀이를 보는게 좋을 것 같다.</p>
+
+<h2 id="1-소수-만들기">1. 소수 만들기</h2>
+<h3 id="11-문제-소개">1.1 문제 소개</h3>
+
+<p><strong>문제 설명</strong></p>
+
+<p>주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다. 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때, nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.</p>
+
+<p><strong>제한사항</strong></p>
+
+<ul>
+  <li>nums에 들어있는 숫자의 개수는 3개 이상 50개 이하입니다.</li>
+  <li>nums의 각 원소는 1 이상 1,000 이하의 자연수이며, 중복된 숫자가 들어있지 않습니다.</li>
+</ul>
+
+<p><strong>입출력 예</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">nums</th>
+      <th style="text-align: left">result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">[1,2,3,4]</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[1,2,7,6,4]</td>
+      <td style="text-align: left">4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>입출력 예 설명</strong></p>
+
+<p>입출력 예 #1  <br>
+[1,2,4]를 이용해서 7을 만들 수 있습니다.</p>
+
+<p>입출력 예 #2  <br>
+[1,2,4]를 이용해서 7을 만들 수 있습니다.  <br>
+[1,4,6]을 이용해서 11을 만들 수 있습니다.  <br>
+[2,4,7]을 이용해서 13을 만들 수 있습니다.  <br>
+[4,6,7]을 이용해서 17을 만들 수 있습니다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;vector&gt;
+#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello Cpp"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="2-문제-해결-과정">2. 문제 해결 과정</h2>
+<h3 id="20-제출-형식에-대한-이야기">2.0. 제출 형식에 대한 이야기</h3>
+
+<p>백준의 경우는 입출력까지도 모두 코드를 작성해야 한다.  <br>
+그런데 프로그래머스는 친절하게도 입출력은 고려하지 않아도 된다.  <br>
+함수를 구현하고 정답을 리턴값으로 넘겨주면 채점을 해준다.   <br>
+이게 왜 간편하냐면 백준 같은 경우에 문제를 다 풀고도 입출력 부분에 때문에 틀리는 경우도 있기 때문이다.</p>
+
+<h3 id="21-문제-접근-방법">2.1. 문제 접근 방법</h3>
+<p>3개의 수를 더해서 소수가 되는 경우를 확인 하기 위해서는 결국 모든 경우의 수를 따져봐야한다.  <br>
+포인트는 3개의 수이다. 3개 미만, 3개 이상인 경우는 소수인지 확인할 필요가 없다.  <br>
+3개일때만 소수인지 확인하고 맞으면 소수가 되는 경우의 수를 증가 시켜주면 된다. <br>
+DFS 돌리면서 3개인경우만 신경 쓰면된다. (백트래킹)</p>
+
+<h3 id="22-dfs">2.2. DFS</h3>
+<p>3개의 경우의 수를 뽑는다고 했을때, 3개의 수를 더해야 하므로, 중복이 허용되는 조합이다.  <br>
+즉 [1,3,5] 와 [3,1,5]는 같은 경우라고 봐야한다. 세수의 합이 같기 때문이다.  <br>
+순차적으로 모든 경우의 수를 따져봐야하기 때문에  <br>
+배열의 첫번째 숫자부터 그뒤의 나머지 숫자들을 더해가며, 더한 수가 3개일때 소수인지 확인하고  <br>
+소수이면 소수가 되는 경우의수 를 증가시켜준다.</p>
+
+<p>DFS 과정은 다음과 같을 것이다. 숫자는 배열의 번째라고 볼 수 있다.  <br>
+1 -&gt; 2 -&gt; 3  <br>
+1 -&gt; 2 -&gt; 4  <br>
+1 -&gt; 2 -&gt; 5  <br>
+1 -&gt; 3 -&gt; 4  <br>
+1 -&gt; 4 -&gt; 5  <br>
+이런식으로 확인 하게 될것이다.</p>
+
+<h3 id="23-문제-해결">2.3 문제 해결</h3>
+
+<h3 id="24-백트래킹-back-tracking">2.4 백트래킹 (Back-tracking)</h3>
+<p>숫자 3개가 모인 경우에만 소수인지 확인하고 나머지 경우는 고려하지 않는다.  <br>
+이문제가 조금은 쉽게 느껴지는경 바로 숫자 3개로 제한 했기 때문일것이다.  <br>
+만일 제한이 없었다면 어땠을까?  <br>
+고려 해야 할 사항들이 늘어난다.  <br>
+갯수 상관없이 소수인 경우를 모두 고려해야하고,  <br>
+중복되는 결과에 대해서는 카운트 처리를 하지 않아야 한다.</p>
+
+<h2 id="3-구현">3. 구현</h2>
+<h3 id="31-핵심-코드">3.1 핵심 코드</h3>
+<p>소수인지 판별하는 코드는 따로 첨부하지 않고 넘어가도록 하겠다. 물론 맨아래 전체 코드에는 넣어두었다.</p>
+
+<p>solution 함수 내부에서 배열의 크기만큼 DFS를 돌려준다.   <br>
+순차적으로 방문하는데, 한번 방문한 숫자는 방문할 필요가 없다. (어차피 모두 더해야 하므로)</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>DFS 함수의 파라미터를 살펴보자.   <br>
+중요한 파라미터는 2,3,4 번째 파리미터이다.   <br>
+2번째 파라미터는 이제까지 더한 값이고, 3번째 파라미터는 현재 배열의 몇번째 위치인가를 나타내는 인덱스이다.   <br>
+가장 중요한 4번째 파라미터는 현재까지 몇개의 숫자를 더했는지 확인하는 변수이다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>이제부터는 DFS 함수의 구현이다.   <br>
+우선 가장먼저 현재까지 더한 숫자의 갯수가 3개 이상이면 더이상 탐색을 진행 할 필요가 없으니 가장 먼저 처리해준다.   <br>
+몇개인지 모르고 다 더해서 소수가 되었는지 알고보니 5개를 더했다면, 카운트 할 필요가 없기 때문이다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">cnt</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">){</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>그다음은 3개인 경우에는 어떻게 할것인가 하는 문제이다.   <br>
+3개인 경우 소수인지 확인 하고 소수이면 경우의 수를 1증가시키고 탐색을 종료한다.   <br>
+result 변수는 전역 변수로 소수인 경우의 수를 카운트 한다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">cnt</span><span class="o">==</span><span class="mi">3</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">result</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>파리미터로 현재의 위치를 넘겨주는 이유는 다음의 코드에서 확인 할 수 있다.   <br>
+배열을 왼쪽에서 오른쪽으로 탐색하는데, 이경우 이전에 탐색한 곳은 탐색할 필요가 없다.   <br>
+그래서 다음 인덱스(현재 인덱스도 결국 방문한곳)부터 숫자의 합과 다음 인덱스에 해당되는 값을 더하며 탐색을 한다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">sum</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>결과적으로 DFS를 통해 순차적으로 탐색 한다.   <br>
+탐색하면서 더한 숫자의 갯수가 3개인 경우에 소수인지 확인 한 뒤, 소수면 결과값에 1를 더해준다.</p>
+
+<h3 id="32-전체-코드">3.2 전체 코드</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;vector&gt;
+#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">is_prime</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">clear_visit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cnt</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">){</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">cnt</span><span class="o">==</span><span class="mi">3</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+            <span class="n">result</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">sum</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">is_prime</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">number</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">){</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">number</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">number</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr>
+
+  </div>
+
+  
+  <div id="post-disqus" class="container">
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tear94fall-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener noreferrer nofollow">comments powered by Disqus.</a>
+</noscript>
+                            
+  </div>
+  
+</article>
+
+            
+            <footer class="site-footer">
+                <!-- SVG icons from https://iconmonstr.com -->
+                
+                <!-- Github icon -->
+                <span class="my-span-icon">
+                    <a href="" aria-label="'s GitHub" title="'s GitHub">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- Twitter icon -->
+                <span class="my-span-icon">
+                    <a href="https://twitter.com/" aria-label="'s Twitter" title="'s Twitter" target="_blank" rel="noopener noreferrer nofollow">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"></path></svg>
+                    </a>
+                </span>
+                
+                <!-- RSS icon -->
+                
+                
+                <!-- Contact icon -->
+                
+                
+                <span class="my-span-icon">
+                    <a href="http://localhost:4000/contact.html" aria-label="Contact" title="Contact ">
+                        <svg class="my-svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z"></path></svg>
+                    </a>
+                </span>
+                
+                
+            </footer>
+        </section>
+        
+        <script>
+            var menu = document.querySelector("nav.site-nav");
+            var checkbox = document.getElementById("nav-trigger");
+            
+            // close menu if click outside menu
+            document.addEventListener("click", function(e) {
+                if (menu != e.target &&
+                        !isDescendant(menu, e.target)) {
+                    checkbox.checked = false;
+                }
+            }, false);
+            
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node == parent) {
+                        return true;
+                    }
+                    node = node.parentNode;
+                }
+                return false;
+            }  
+        </script>
+        
+    </body>
+    </html>
+    
