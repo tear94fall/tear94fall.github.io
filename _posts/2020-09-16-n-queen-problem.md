@@ -19,13 +19,13 @@ image: #
 
 체스를 해본적이 있는가? 체스는 `8 x 8` 크기의 판에서 말을 움직여 승부를 겨루는 게임이다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/chess-board.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/chess-board.jpg ){: width="49%" height="49%"}
 
 체스를 잘 안다면 이미 알고 있겠지만, 체스를 잘 모르는 사람도 있을수 있으니 설명하자면,   
 문제에서 사용되는 퀸(Queen)은 왼쪽하단의 그림과 같이 상하좌우, 대각선으로 칸수에 관계없이 움직일 수 있다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/queen-attack-range.jpg ){: width="49%" height="49%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/nqueen-solve.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/queen-attack-range.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/nqueen-solve.jpg ){: width="49%" height="49%"}
 
 N-Queen 문제는 딱 한 문장으로 설명이 가능하다.
 
@@ -41,8 +41,8 @@ N개의 서로 다른 퀸이 서로를 공격할 수 없도록 N개의 퀸을 �
 
 어떻게 접근 해야할까 생각하다가 직접 퀸을 놓아 보았다. 가장 먼저 왼쪽 맨위 모서리인 `A8`에 퀸을 놓았다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/first-queen-position.jpg ){: width="49%" height="49%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/first-queen-range.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/first-queen-position.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/first-queen-range.jpg ){: width="49%" height="49%"}
 
 머리속으로 상상하기 어려우면 종이에 직접 체스판을 그려보면서 이해하는 것을 추천한다.  
 퀸을 놓고, 다음 퀸을 놓을 수 없는 위치는 칠해가는 방식으로 말이다.   
@@ -52,8 +52,8 @@ N개의 서로 다른 퀸이 서로를 공격할 수 없도록 N개의 퀸을 �
 
 첫번째 퀸을 놓으면서 칠해 놓은 자리에는 퀸을 놓을 수없으므로, 두번째 퀸은 가능한 자리에 놓아준다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/second-queen-position.jpg ){: width="49%" height="49%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/second-queen-range.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/second-queen-position.jpg ){: width="49%" height="49%"}
+![Image Alt 텍스트](/image/NQueen/second-queen-range.jpg ){: width="49%" height="49%"}
 
 역시, 두번째 퀸을 놓은뒤에 다음 퀸을 놓을 수 없는 자리는 X자로 표시해둔다.   
 이렇게 N개의 퀸을 놓을때 까지, 첫번째~두번째 퀸을 놓으면서 했던 작업을 반복 한다.   
@@ -82,21 +82,21 @@ N-Queen 문제를 푸는 가장 쉽고도 간단한 방법은 모든 경우의 �
 하지만 다음 퀸을 놓을 수 없을 경우에 그이후 과정을 생략한다면 좀 더 빠르게 정답을 구할 수 있을것이다.   
 퀸을 놓을 수 없는 경우를 확인 하기 위해서는, 위의 3가지 조건을 모두 따져본다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/first-queen-position.jpg ){: width="24%" height="24%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/wrong-position.jpg ){: width="24%" height="24%"}    
+![Image Alt 텍스트](/image/NQueen/first-queen-position.jpg ){: width="24%" height="24%"}
+![Image Alt 텍스트](/image/NQueen/wrong-position.jpg ){: width="24%" height="24%"}    
 
 `A8`에 퀸을 놓았을 경우 다음 퀸을 놓으려고 할때, `B8`에 놓을 수 없다.   
 이때 다음 퀸을 놓을지 생각하지 말고 다시 `A8`에 퀸이 놓여있는 상황으로 다시 돌아간다.    
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/first-queen-position.jpg ){: width="24%" height="24%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/wrong-position2.jpg ){: width="24%" height="24%"}    
+![Image Alt 텍스트](/image/NQueen/first-queen-position.jpg ){: width="24%" height="24%"}
+![Image Alt 텍스트](/image/NQueen/wrong-position2.jpg ){: width="24%" height="24%"}    
 
 방금전 상황에서 `B8`에 퀸을 놓을 수 없다는것을 알았으므로, 다음 위치인 `B7`에 퀸을 놓는 것을 생각해 볼 수 있다.   
 하지만, `A8`의 퀸의 대각선에 위치하므로 놓을 수 없다. 다시 `A8`만 놓여져 있는 상황으로 다시 돌아간다.    
 역시 다음 퀸을 놓는 것은 생각하지 않는다.    
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/first-queen-position.jpg ){: width="24%" height="24%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/NQueen/second-queen-position.jpg ){: width="24%" height="24%"}
+![Image Alt 텍스트](/image/NQueen/first-queen-position.jpg ){: width="24%" height="24%"}
+![Image Alt 텍스트](/image/NQueen/second-queen-position.jpg ){: width="24%" height="24%"}
 
 방금전 두 상황에서 `B8`, `B7`에는 퀸을 놓을 수 없다는 것을 깨달았다.   
 이제 다음 위치인 `B6`에 퀸을 놓으려고 한다. 위에서 퀸을 놓을때마다 체크해야 하는 3가지 상황을 체크 한다.   

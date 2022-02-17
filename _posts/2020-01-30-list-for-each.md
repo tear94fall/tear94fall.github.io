@@ -15,7 +15,7 @@ list_for_each(), list_for_each_entry() 함수에 대해서 알아보도록 하�
 
 ## 링크드 리스트
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Data Structure/linked_list.png )
+![Image Alt 텍스트](/image/Data Structure/linked_list.png )
 
 ---
 

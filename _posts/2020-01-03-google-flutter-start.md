@@ -13,7 +13,7 @@ Dart 라는 언어로 만들어져 있으며, Dart 역시 구글이 만든 언�
 
 ---
 ### 1. Flutter(플러터) 란?
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter logo.png )
+![Image Alt 텍스트](/image/Google Flutter/flutter logo.png )
 크로스 플랫폼은 개발자에겐 마치 꿈과 같은 이야기 입니다.  
 특히나 모바일 개발자에게 있어 크로스 플랫폼은 이루지 못한 꿈과 같은 존재일 것입니다.  
 하나의 코드로 두개의 플랫폼에서 모두 실행이 가능하다면, 유지보수는 더욱 용이할 것입니다.  
@@ -38,24 +38,24 @@ Flutter로 만들 앱들은 [\(Flutter 로 만든 앱들\)](https://flutter.dev/
 Flutter를 시작하기전에 SDK를 다운로드 받도록 하곘습니다!  
 플러터는 [\(Flutter 공식 홈페이지\)](https://flutter.dev) 에서 다운 받을 수 있습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/}}/image/Google Flutter/flutter homepage.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter homepage.PNG )
 
 공식 홈페이지에 들어간 화면입니다.  
 우측 상단에 Get Start 버튼을 누르면 설치 페이지로 이동합니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter homepage download option.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter homepage download option.PNG )
 
 윈도우/맥/윈도우 모두를 지원하고 있습니다.  
 사용하시는 OS에 맞게 설치하시면 됩니다만, 본 포스팅에서는 윈도우를 기준으로 진행하도록 하겠습니다.  
 맥 OS 에서 설치하는 방법은 이후에 추가하도록 하겠습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter homepage download sdk.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter homepage download sdk.PNG )
 
 2020년 1월을 기준으로 1.12.13 버전이 최신 버전이므로, 포스팅 기준 최신 버전으로 설치를 진행했습니다.  
 친절하게도 다운로드 버튼 까지 만들어 놓았습니다.  
 클릭하시면 바로 다운로드가 가능합니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter zip file.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter zip file.PNG )
 
 SDK 다운로드가 완료되면 압축을 풀어주시면 됩니다.  
 압축을 풀면 flutter라는 최상위 폴더가 있습니다.  
@@ -67,27 +67,27 @@ SDK 다운로드가 완료되면 압축을 풀어주시면 됩니다.
 ### 3. Flutter(플러터) 설치하기
 Flutter를 다운로드 했다면 이제 부턴 본격적으로 설치를 시작해보도록 하곘습니다!  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter unlock zip file.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter unlock zip file.PNG )
 
 압축을 풀었던 SDK 폴더로 들어갑니다.  
 폴더 안에는 **flutter_console**이라는 이름의 배치 파일이 있습니다.  
 배치 파일을 실행해주도록 합니다.  
 알수없는 실행 파일이라며, 경고가 표시될수도 있으나 무시하시고 실행 하시면 됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter batch file execute.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter batch file execute.PNG )
 
 실행해주시면 누가보도 FLUTTER라고 문구가 표시됩니다.  
 두번째 줄에 **flutter doctor** 명령어를 입력하라고 알려주고 있습니다.  
 나머지 내용은 플러터의 경로등을 알려주고 있습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor command 1.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor command 1.PNG )
 
 앞서 페이지에서 알려준 명령어인, **flutter doctor** 명령어를 입력해주도록 합니다.  
 그러면 네모난 박스가 표시되면서, 플러터에 오신것을 환영한다고 합니다!  
 앞선 내용은 쉽게 따라할 수 있는 내용이지만, 다음 내용부터는 초보자 분들에게는 어려운 내용도 있을 수 있습니다.  
 이제부터 잘 따라오시기 바랍니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor command 2.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor command 2.PNG )
 
 우선 첫번째 줄에는 플루터가 정상적으로 설치되었기에 ✅ 표시가 되어있습니다.   
 두번째 줄과 세번째줄의 ❌는 안드로이드 스튜디오가 설치되어 있지 않기 때문에 표시되었습니다.  
@@ -107,31 +107,31 @@ Flutter를 다운로드 했다면 이제 부턴 본격적으로 설치를 시작
 안드로이드 기기를 직접 연결해서 앱을 구동하셔도되고, 에뮬레이터를 사용해 앱을 구동하셔도 됩니다.  
 본 포스팅에서는 에뮬레이터를 설치하고, 에뮬레이터를 기준으로 설명하도록 하겠습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio install.PNG ){: width="60%" height="60%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio install.PNG ){: width="60%" height="60%"}  
 
 설치 파일을 실행하면 다음과 같이 안드로이드 스튜디오에 오신것을 환영합니다 라고 맞이 해줍니다.  
 크게 어려울 부분 없이 Next 를 계속 눌러주시면 안드로이드 스튜디오 설치가 완료됩니다.   
 과정을 모두 올리고 싶지만, 포스팅이 길어질 것 같아서, 설치 초기화면만 첨부 하였습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio initial setting.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio initial setting.PNG ){: width="80%" height="80%"}  
 
 처음 실행하면 안드로이드 스튜디오 설정을 위한 설정 마법사가 설정을 도와줍니다.   
 크게 어려울 부분없이 Next를 눌러주시면 됩니다.  
 위 화면은 테마를 설정하는 화면입니다. 다른 화면은 모두 넘기셔도 무방합니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio start menu.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio start menu.PNG ){: width="80%" height="80%"}  
 
 안드로이드 시작 화면입니다.  
 다양한 메뉴가 있지만, 플러터를 이용해서 프로젝트를 생성하는 메뉴가 아직은 없습니다.  
 플러터 프로젝트를 만들기 위해서 좀 더 설정을 해주도록 하겠습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio env var setting 1.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio env var setting 1.PNG ){: width="80%" height="80%"}  
 
 안드로이드 앱 개발을 위한 안드로이드 툴체인을 위해 안드로이드 SDK 경로를 설정해야 합니다.  
 아까 flutter doctor 명령어 입력후, 두번째 줄에 ❌표시된 항목을 다시 보시면 됩니다.  
 환경 변수를 설정하기 위해서 `내컴퓨터 -> 속성 -> 고급 시스템 설정 -> 환경 변수`를 차례대로 클릭해줍니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio env var setting 2.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio env var setting 2.PNG ){: width="80%" height="80%"}  
 
 ANDROID라는 변수이름으로 안드로이드가 설치된 경로를 입력 해주시면 됩니다.  
 경로를 알기 위해서는 안드로이드 스튜디오 초기 메뉴 화면에서 ⚙️모양의 configure을 클릭 합니다.  
@@ -144,23 +144,23 @@ ANDROID라는 변수이름으로 안드로이드가 설치된 경로를 입력 �
 이제 라이센스 동의와 플러그인만 설치하면 끝이 납니다.  
 조금 만 더 힘을 내시면 플러터를 이용한 앱을 만들 수 있습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor command error 1.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor command error 1.PNG )
 
 플러터를 위해 안드로이드 설정을 모두 끝내고 다시 돌아와 배치파일에서 **flutter doctor**를 입력해줍니다.  
 새로운 ❌표시가 생겼습니다.   
 하지만 어려울 것 없이, 라이센스 동의가 필요 하다는 내용과 플러그인이 설치되지 않았다는 내용입니다.  
 라이센스 동의와 플러그인을 설치 해주도록 합니다.
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor --android-licenses command 1.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor --android-licenses command 1.PNG )
 
 **flutter doctor --android-licenses**를 입력해달라고 합니다. 그대로 입력해주도록 합니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor --android-licenses command 2.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor --android-licenses command 2.PNG )
 
 명령어를 입력하면 라이센스에 동의냐고 물어봅니다.  
 (y/N)로 물어봅니다. 모두 y를 입력 해주시면 됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor command error 2.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor command error 2.PNG )
 
 라이센스에 모두 동의 하고 나면, 라이센스에 동의 했는가에 대한 항목은 정상적으로 ✅표시가 되었습니다.  
 남은 ❌표시는 플러터 플러그인가 설치되지 않았기에 표시된 항목입니다.  
@@ -169,19 +169,19 @@ ANDROID라는 변수이름으로 안드로이드가 설치된 경로를 입력 �
 각자 맞는 개발 환경을 구축하면 되지만, 본 포스팅에서는 안드로이드 스튜디오를 이용해 진행 하도록 하겠습니다.  
 하지만, 비주얼 스튜디오 코드에서도 사용이 가능하도록 설치 방법을 명시해두었으니, 설치하시면 됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/vscode extension flutter.PNG )
+![Image Alt 텍스트](/image/Google Flutter/vscode extension flutter.PNG )
 
 비주얼 스튜디오 코드에서는 좌측 메뉴에서 flutter를 입력해주시면, 플러그인 설치가 가능합니다.  
 설치 버튼을 눌러시면 플러그인이 설치됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio flutter flugin install.PNG )
+![Image Alt 텍스트](/image/Google Flutter/android studio flutter flugin install.PNG )
 
 안드로이드에서 플러그인을 설치하는 방법은 아까 SDK 경로를 알아내기 위한 방법과 비슷합니다.   
 안드로이드 스튜디오 초기 메뉴 화면에서 ⚙️모양의 configure을 클릭 합니다.  
 `Preference -> Plugin`을 클릭하시고 flutter를 입력해주시면 됩니다.  
 flutter 플러그인 항목 나타나면 `install` 버튼을 눌러주시면 됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio flutter flugin install end.PNG )
+![Image Alt 텍스트](/image/Google Flutter/android studio flutter flugin install end.PNG )
 
 설치가 완료되면, `Restart IDE` 가 표시되고, 버튼을 눌러주시면, 안드로이드 스튜디오가 다시 시작됩니다.   
 
@@ -194,27 +194,27 @@ flutter 플러그인 항목 나타나면 `install` 버튼을 눌러주시면 됩
 ### 6. 안드로이드 에뮬레이터 생성하기
 안드로이드 스튜디오에서 작성한 플러터 앱을 구동하기 위해서, 에뮬레이터를 생성하는 방법을 소개 하도록 하겠습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor command connected device error.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor command connected device error.PNG )
 
 앞선 모든 과정을 진행하셨다면, 마무리 하셔도 됩니다.  
 이제 ❌표시는 모두 사라졌고, 이제❗️표시만 남았습니다.  
 마지막 남은 ❗️표시는 연결된 기기가 없다고 알려주는 항목입니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio amulator install.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio amulator install.PNG ){: width="80%" height="80%"}  
 
 
 다시 안드로이드 스튜디오 초기 메뉴 화면으로 갑니다. ⚙️모양의 configure을 클릭 합니다.  
 `Preference -> AVD Manager`을 클릭합니다. AVD Manager는 Android Virtual Device의 약자 입니다.  
 AVD Manager창이 표시되면 `Create Virtual Device...` 버튼을 눌러주시면 됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio amulator setting.PNG ){: width="80%" height="80%"}   
+![Image Alt 텍스트](/image/Google Flutter/android studio amulator setting.PNG ){: width="80%" height="80%"}   
 
 다양한 가상 기기가 있는데, 저는 픽셀 2를 사용 하도록 하겠습니다.    
 큰화면을 원하신다면 테블릿등으로 가상 기기를 생성하셔도 됩니다.  
 하지만, 모바일 환경이 제일 익숙하므로 되도록 스마트폰을 생성 해주시기 바랍니다.   
 Next를 눌러주시면 가상 기기 생성이 완료 됩니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android studio amulator list.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android studio amulator list.PNG ){: width="80%" height="80%"}  
 
 가상기기 생성이 완료되면, 다음과 같이 목록에 기기가 표시됩니다.   
 마지막 ▶️ 버튼을 눌러주시면 에뮬레이터 작동을 시작합니다.  
@@ -223,7 +223,7 @@ Next를 눌러주시면 가상 기기 생성이 완료 됩니다.
 안드로이드 스튜디오 에서 요구하는 최소 사양보다는 조금 높은 사양의 컴퓨터를 이용해 진행해주시면,  
 조금 더 원활하게 작업이 가능합니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter doctor command non error.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter doctor command non error.PNG )
 
 에뮬레이터를 실행하고 다시 **flutter doctor** 명령어를 입력해줍니다.  
 다음과 같이 모든 항목이 ✅표시가 되었습니다.  
@@ -233,19 +233,19 @@ Next를 눌러주시면 가상 기기 생성이 완료 됩니다.
 ### 7. Flutter(플러터) 프로젝트 생성
 본격적으로 플러터 프로젝트를 만들고 앱을 구동하기 위해서 프로젝트를 생성해줍니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/android stuido start menu flutter project add.PNG ){: width="80%" height="80%"}  
+![Image Alt 텍스트](/image/Google Flutter/android stuido start menu flutter project add.PNG ){: width="80%" height="80%"}  
 
 다시 안드로이드 스튜디오를 실행 해주면, 아까와는 다르게 초기 메뉴가 되었습니다.  
 바로 `Start a new Flutter project` 메뉴가 추가 되었습니다.  
 해당 메뉴를 클릭하시면, 플러터 프로젝트를 생성 할 수 있습니다.  
 플러터 프로젝트를 생성하도록 하곘습니다.
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter create flutter project.PNG ){: width="90%" height="90%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter create flutter project.PNG ){: width="90%" height="90%"}  
 
 여러 종류의 플러터 프로젝트를 생성 할 수 있습니다.  
 저희는 플러터를 위한 앱을 생성할 것이기 때문에 첫번째 템플릿을 눌러주도록 합니다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter project setting.PNG ){: width="90%" height="90%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter project setting.PNG ){: width="90%" height="90%"}  
 
 다음은 플러터의 환경을 설정해주는 화면입니다.  
 프로젝트 이름은 맘에 드시는 이름을 적어주시면 됩니다.  
@@ -260,12 +260,12 @@ SDK가 존재하지 않으면 앱 구동이 되지 않기 때문에, 삭제되�
 **올바른 경로를 입력해주시기 바랍니다.**  
 물론 올바른 경로가 아니면 Next 버튼이 클릭되지 않습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter sdk path setting.PNG ){: width="90%" height="90%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter sdk path setting.PNG ){: width="90%" height="90%"}  
 
 정상적인 SDK폴더의 경로를 입력해주면, Next 버튼 클릭이 가능합니다.  
 Next버튼을 클릭해주시기 바랍니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter package setting.PNG ){: width="90%" height="90%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter package setting.PNG ){: width="90%" height="90%"}  
 
 다음 화면에서는 패키지 이름을 설정해주는 페이지 입니다.  
 저희는 학습을 목적으로 프로젝트를 생성하였기 때문에, 아무값이나 입력해주시면 됩니다.  
@@ -273,7 +273,7 @@ Next버튼을 클릭해주시기 바랍니다.
 하지만 이윤을 위해서나, 상업적인 목적으로 프로젝트를 생성하셨다면,  
 Company domain을 정확하게 입력해주시기 바랍니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter project setting end.PNG ){: width="90%" height="90%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter project setting end.PNG ){: width="90%" height="90%"}  
 
 ※ 환경 구축 및 설치를 위해 작성한 포스팅이기 때문에 따로 다트 언어의 문법이나, 플러터 프레임워크의 사용법에대해서는 본 포스트에서 다루지 않겠습니다.
 
@@ -285,16 +285,16 @@ Company domain을 정확하게 입력해주시기 바랍니다.
 첫 플러터 프로젝트 생성이 완료 되었습니다!  
 아까전에 생성한 에뮬레이터에서 빌드를 수행하고 구동 시켜 보도록 하겠습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter run project.PNG )
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter run project.PNG )
 
 안드로이드 스튜디오 우측 상단 부분의 ▶️ 버튼을 클릭 해줍니다. 그럼 에뮬레이터에 정상적으로 플러터 앱이 구동이 될것입니다. 그옆에는 연결된 기기나, 구동이 가능한 에뮬레이터가 표시됩니다. 안드로이드 기기를 연결하지 않으면 에뮬레이터 기기가 표시될 것입니다. 첨부된 이미지에서는 에뮬레이터와 실제 안드로이드 기기 모두 연결해서 구동을 하다 보니, 마지막으로 구동한 실제 기기의 목록이 표시되었습니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter first app amulator.PNG ){: width="40%" height="40%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter first app amulator.PNG ){: width="40%" height="40%"}  
 
 아까 만든 에뮬레이터 픽셀2 에서 실행된 첫번째 플러터 앱 입니다!  
 우측 하단의 ➕버튼을 누르면 중앙의 숫자값이 증가하는 심플한 앱입니다!
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Google Flutter/flutter flutter first app.jpg ){: width="40%" height="40%"}  
+![Image Alt 텍스트](/image/Google Flutter/flutter flutter first app.jpg ){: width="40%" height="40%"}  
 
 실제 안드로이드 기기에서 실행해본 플러터 앱입니다.  
 에뮬레이터에서 구동한 앱과 동일한 앱으로 역시 ➕버튼을 누르면 중앙의 숫자값이 증가하는 심플한 앱입니다.
