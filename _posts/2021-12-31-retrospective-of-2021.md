@@ -14,8 +14,8 @@ image: #
 
 ---
 
-[2019년 회고 / 2020년 계획]({{https://tear94fall.github.io/ }}/essay/2019/12/31/my-example-post.html )  
-[2020년 회고 / 2021년 계획]({{https://tear94fall.github.io/ }}/essay/2020/12/31/retrospective-of-2020.html )  
+[2019년 회고 / 2020년 계획](/essay/2019/12/31/my-example-post.html )  
+[2020년 회고 / 2021년 계획](/essay/2020/12/31/retrospective-of-2020.html )  
 에 이은 세번째 회고입니다.
 
 ## 1. 2021년 상반기
@@ -98,7 +98,7 @@ image: #
 사진처럼 유닉스는 더이상 쓰이지 않는데에 반해, 리눅스는 임베디드에서 정말 많이 사용된다.  
 물론 현재 대부분의 운영체제의 뿌리가 유닉스에 있음을 보면, 상당히 안타까운 현실이 아닐수 없다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective2021/linux_and_unix_humor.JPG ){: width="60%" height="60%"}    
+![Image Alt 텍스트](/image/Retrospective2021/linux_and_unix_humor.JPG ){: width="60%" height="60%"}    
 
 퇴사하기전에, 그니까 2021년 초에 새로운 유닉스를 맞이했다.  
 정확히는 장비가 온게 아니고, os가 설치된 HDD가 왔고 유닉스 장비에 장착했다.  
@@ -136,7 +136,7 @@ HDD를 변경해서 부팅을 하는 경우 이과정을 진행해야 했고, �
 만일 설치할 패키지가 다른 100개의 패키지를 의존하고있다면 어떻게 해야할까?  
 그렇다. 최악의 경우에는 1번 부터 3번의 과정을 100번 수행해야 한다.
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective2021/hp-ux-swinstall.png )
+![Image Alt 텍스트](/image/Retrospective2021/hp-ux-swinstall.png)
 
 hp-ux는 depot 이라는 패키지 시스템을 사용하고, swinstall 이라는 패키지 설치 툴을 이용한다.  
 위의 사진이 바로 swinstall 이다. 자세히 보면 알겠지만, gui툴이 아니라 cli로 구현된 gui형태이다.  
@@ -182,7 +182,7 @@ LED가 반짝 반짝 거리고 타건감이 좋은 기계식 키보가 정말 �
 퇴직금과 연차를 사용하지 않고 받은 돈이 좀 생겨서 그돈으로 해피해킹을 구입했다.  
 키보드 하나에 무려 40만원이 넘기 때문에 정말 고민을 많이 하다가 결국 주문을 했다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective2021/type-s-white-1-1.png ){: width="60%" height="60%"}  
+![Image Alt 텍스트](/image/Retrospective2021/type-s-white-1-1.png ){: width="60%" height="60%"}  
 
 위의 사진과 같이 처음 보게되면 저건 무엇인가하는 생각이 들것이다. 나도 그랬다.  
 방향키도 없고, 숫자패드도 없고, f1 라인도 없다. 정말 있을것만 있는 듯한 느낌이 든다.  

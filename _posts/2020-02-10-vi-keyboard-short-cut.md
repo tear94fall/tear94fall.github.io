@@ -16,7 +16,7 @@ gui기반의 에디터가 아니라 cli 기반의 에디터 이기 때문에 배
 
 ## vim 에디터
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Vim_editor/Vim_logo.png ){:width="30%" height="30%"}
+![Image Alt 텍스트](/image/Vim_editor/Vim_logo.png ){:width="30%" height="30%"}
 
 우선 vi와 vim에대해서 알아 보도록 하곘습니다. vi는 1976년 빌조이가 만든 편집기 입니다.  
 지금은 gui가 당연하게 인식되어있지만, 당시만 하더라도 cli환경이었습니다. vi 이전에는 한줄씩 편집 하는 line editor(줄단위 편집기)를 사용했다고 합니다.   
@@ -29,7 +29,7 @@ vi는 visual editor의 약자로 기존의 라인단위에서 화면 단위 편�
 
 우선, 단축키 모음표입니다. 처음 사용하신 다면 출력해서 책상에 넣어 두면서 보시는것도 좋은 방법입니다.  
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Vim_editor/vi-vim-cheat-sheet-ko.png )
+![Image Alt 텍스트](/image/Vim_editor/vi-vim-cheat-sheet-ko.png )
 
 ---
 

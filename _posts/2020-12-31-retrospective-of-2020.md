@@ -14,7 +14,7 @@ image: #
 
 ---
 
-[2019년 회고 / 2020년 계획]({{https://tear94fall.github.io/ }}/essay/2019/12/31/my-example-post.html )에 이은 두번째 회고 입니다.
+[2019년 회고 / 2020년 계획](/essay/2019/12/31/my-example-post.html )에 이은 두번째 회고 입니다.
 
 ## 1. 2020년 상반기
 
@@ -42,8 +42,8 @@ image: #
 
 #### 1.2.1 재택근무
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/telecommuting-alarm.png ){: width="40%" height="40%"}    
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/telecommuting-report.png ){: width="40%" height="40%"}    
+![Image Alt 텍스트](/image/Retrospective/telecommuting-alarm.png ){: width="40%" height="40%"}    
+![Image Alt 텍스트](/image/Retrospective/telecommuting-report.png ){: width="40%" height="40%"}    
 
 확진자수가 급격히 늘어남에 따라 재택근무를 하게되었다.    
 나는 오히려 재택근무가 싫었다. 입사한지 얼마 되지 않아서, 이것저것 배우고, 조언도 듣고 해야하는데,    
@@ -95,7 +95,7 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 방향키 안쓰는게 어려울것같은데, 리눅스/유닉스에 ssh로 vi 사용해 개발하면, 방향키 그렇게 크게 필요없다.   
 그리고 `f1`~`f12` 키 역시 리눅스/유닉스의 cli 환경에서는 그렇게 크게 필요가 없다.
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/anne-pro-2-keyboard.jpg ){: width="60%" height="60%"}    
+![Image Alt 텍스트](/image/Retrospective/anne-pro-2-keyboard.jpg ){: width="60%" height="60%"}    
 
 그래서 결론적으로 어떻게 vi에 적응했냐가 중요할것같은데, 나는 이를 물리적인  방법으로 해결했다.    
 우선 물리적으로 키보드가 작아지면 좋은점이 있다. 바로 책상내 공간이 넓어져 공간활용도도 높아진다.   
@@ -119,7 +119,7 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 하루도 빠짐없이 하루에 한번 꼭 커밋을 계속 한게 지금까지 약 9개월간 계속 되었다.    
 만일 그날 회식이나 약속이 있다면, 꼭두 새벽에 알람 맞추고 일찍 일어나 커밋을 했다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/one-day-one-commit.png )
+![Image Alt 텍스트](/image/Retrospective/one-day-one-commit.png )
 하지만, 최근에는 공부를 하고 개발을 위한 개발을 하는게 아니라, 커밋을 하기위한 개발이 되어버렸다고 생각한다.   
 최근에는 정말 극심한 매너리즘에 빠졌다. 이유는 아마도 여러가지가 있겠지만, 가장 큰이유는 다음과 같다고 생각한다.   
 9월 달 부터 지금 회고를 쓰는 연말까지 대략 4개월 동안 거의 하루 이틀을 제외하고는 야근을 했다.    
@@ -153,8 +153,8 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 시간 참 빠른것같다. 길지는 않은 기간인 3개월 정도 같이 지냈지만, 정말 이런저런 애기를 많이 나누었다.   
 회사를 다니면서 마지막 분기의 3개월 동안 참 많은 변화가 있기도 했다.    
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/messanger-talk-1.PNG ){: width="30%" height="30%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/messanger-talk-2.PNG ){: width="30%" height="30%"}    
+![Image Alt 텍스트](/image/Retrospective/messanger-talk-1.PNG ){: width="30%" height="30%"}
+![Image Alt 텍스트](/image/Retrospective/messanger-talk-2.PNG ){: width="30%" height="30%"}    
 
 지금도 궁금증이나 내가 경험해보지 못한 것들 그리고 어떠한 선택을 해야할때 과장님 의견을 조심스레 항상 여쭤본다.    
 나보다 많은 연차인데, 맘편히 대화를 걸수 있는 상대가 있다는건 큰 축복이다. 무엇보다 대화를 하면 배울게 많다.   
@@ -189,7 +189,7 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 결과는 우수상이라고 했다. 우수상인데 왜 전화하시나 싶었는데, 수상식에 참여하여 발표를 해달라는 전화였다.   
 평가 순위 3위까지 발표한다고 하셨고, 난 2등이었다고 한다. (좀만 더 열심히 했으면... 하고 후회 했다)    
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/excellence-award-reward.PNG ){: width="40%" height="40%"}    
+![Image Alt 텍스트](/image/Retrospective/excellence-award-reward.PNG ){: width="40%" height="40%"}    
 
 상금은 30만원(세전...)을 받게 되었다. 문제는 발표인데, 처음에는 약 15분 가량 준비를 해달라고 하셨다.    
 그래서 공모전 수기 작성할때 패턴과 동일하게 발표자료를 일주일 동안 준비했다.    
@@ -249,8 +249,8 @@ C/C++ IntelliSense 익스텐션은 arm에서 지원되지 않다가 arm Mac이 �
 코드 제출하고 답이 맞아야만 남의 코드를 볼수있기에, 아마도 나보다 얼마나 잘짰냐 하고 보는걸텐데,   
 난 다른 사람이 내 코드를 보고 이 사람 좀 잘 짰네 라는 소리가 나오도록 짜고 싶다.   
 
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/algorithm-view-history1.png ){: width="45%" height="45%"}
-![Image Alt 텍스트]({{https://tear94fall.github.io/ }}/image/Retrospective/algorithm-view-history2.png ){: width="45%" height="45%"}
+![Image Alt 텍스트](/image/Retrospective/algorithm-view-history1.png ){: width="45%" height="45%"}
+![Image Alt 텍스트](/image/Retrospective/algorithm-view-history2.png ){: width="45%" height="45%"}
 
 당연한 얘기지만 알고리즘 공부할때는 문제 접근법, 시간, 메모리 사용량등 골려해야 할 사항이 한두개가 아니다.   
 알고리즘을 정말 잘푸는 분들이 너무나도 많다. 다른 분들이 푼 코드를 보다보면 스스로가 비참해질 때가 많다.   
